@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::resource('boards', 'BoardsController', ['except' => ['create', 'show', 'edit']]);
+Route::resource('threads', 'ThreadsController', ['except' => ['index', 'create', 'edit']]);
+Route::resource('message', 'MessagesController', ['only' => ['store', 'update', 'destroy']]);
+Route::resource('user', 'UsersController', ['only' => ['show', 'update', 'destroy']]);
