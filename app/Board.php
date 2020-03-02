@@ -12,6 +12,6 @@ class Board extends Model
 
     public function threads()
     {
-        return $this->hasMany('App\Thread');
+        return $this->hasMany('App\Thread')->orderBy('updated_at', 'DESC');
     }
 }

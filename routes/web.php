@@ -13,4 +13,8 @@
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/{any}', function () {
+        return view('boards_index');
+    })->where('any', '.*');
+});
