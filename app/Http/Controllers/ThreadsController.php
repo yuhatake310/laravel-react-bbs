@@ -31,7 +31,7 @@ class ThreadsController extends Controller
      */
     public function show(Thread $thread)
     {
-        $thread = Thread::with('messages')->find($thread->id);
+        $thread = Thread::with('messages.user:id,name')->find($thread->id);
 
         return response()->json($thread, 200);
     }

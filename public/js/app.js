@@ -56530,628 +56530,6 @@ exports.default = _Checkbox2.default;
 
 /***/ }),
 
-/***/ "./node_modules/material-ui/FloatingActionButton/FloatingActionButton.js":
-/*!*******************************************************************************!*\
-  !*** ./node_modules/material-ui/FloatingActionButton/FloatingActionButton.js ***!
-  \*******************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _extends2 = __webpack_require__(/*! babel-runtime/helpers/extends */ "./node_modules/babel-runtime/helpers/extends.js");
-
-var _extends3 = _interopRequireDefault(_extends2);
-
-var _objectWithoutProperties2 = __webpack_require__(/*! babel-runtime/helpers/objectWithoutProperties */ "./node_modules/babel-runtime/helpers/objectWithoutProperties.js");
-
-var _objectWithoutProperties3 = _interopRequireDefault(_objectWithoutProperties2);
-
-var _getPrototypeOf = __webpack_require__(/*! babel-runtime/core-js/object/get-prototype-of */ "./node_modules/babel-runtime/core-js/object/get-prototype-of.js");
-
-var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
-
-var _classCallCheck2 = __webpack_require__(/*! babel-runtime/helpers/classCallCheck */ "./node_modules/babel-runtime/helpers/classCallCheck.js");
-
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-var _createClass2 = __webpack_require__(/*! babel-runtime/helpers/createClass */ "./node_modules/babel-runtime/helpers/createClass.js");
-
-var _createClass3 = _interopRequireDefault(_createClass2);
-
-var _possibleConstructorReturn2 = __webpack_require__(/*! babel-runtime/helpers/possibleConstructorReturn */ "./node_modules/babel-runtime/helpers/possibleConstructorReturn.js");
-
-var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-
-var _inherits2 = __webpack_require__(/*! babel-runtime/helpers/inherits */ "./node_modules/babel-runtime/helpers/inherits.js");
-
-var _inherits3 = _interopRequireDefault(_inherits2);
-
-var _simpleAssign = __webpack_require__(/*! simple-assign */ "./node_modules/simple-assign/index.js");
-
-var _simpleAssign2 = _interopRequireDefault(_simpleAssign);
-
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _transitions = __webpack_require__(/*! ../styles/transitions */ "./node_modules/material-ui/styles/transitions.js");
-
-var _transitions2 = _interopRequireDefault(_transitions);
-
-var _colorManipulator = __webpack_require__(/*! ../utils/colorManipulator */ "./node_modules/material-ui/utils/colorManipulator.js");
-
-var _EnhancedButton = __webpack_require__(/*! ../internal/EnhancedButton */ "./node_modules/material-ui/internal/EnhancedButton.js");
-
-var _EnhancedButton2 = _interopRequireDefault(_EnhancedButton);
-
-var _FontIcon = __webpack_require__(/*! ../FontIcon */ "./node_modules/material-ui/FontIcon/index.js");
-
-var _FontIcon2 = _interopRequireDefault(_FontIcon);
-
-var _Paper = __webpack_require__(/*! ../Paper */ "./node_modules/material-ui/Paper/index.js");
-
-var _Paper2 = _interopRequireDefault(_Paper);
-
-var _childUtils = __webpack_require__(/*! ../utils/childUtils */ "./node_modules/material-ui/utils/childUtils.js");
-
-var _warning = __webpack_require__(/*! warning */ "./node_modules/warning/browser.js");
-
-var _warning2 = _interopRequireDefault(_warning);
-
-var _propTypes3 = __webpack_require__(/*! ../utils/propTypes */ "./node_modules/material-ui/utils/propTypes.js");
-
-var _propTypes4 = _interopRequireDefault(_propTypes3);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function getStyles(props, context) {
-  var floatingActionButton = context.muiTheme.floatingActionButton;
-
-
-  var backgroundColor = props.backgroundColor || floatingActionButton.color;
-  var iconColor = floatingActionButton.iconColor;
-
-  if (props.disabled) {
-    backgroundColor = props.disabledColor || floatingActionButton.disabledColor;
-    iconColor = floatingActionButton.disabledTextColor;
-  } else if (props.secondary) {
-    backgroundColor = floatingActionButton.secondaryColor;
-    iconColor = floatingActionButton.secondaryIconColor;
-  }
-
-  return {
-    root: {
-      transition: _transitions2.default.easeOut(),
-      display: 'inline-block',
-      backgroundColor: 'transparent'
-    },
-    container: {
-      backgroundColor: backgroundColor,
-      transition: _transitions2.default.easeOut(),
-      height: floatingActionButton.buttonSize,
-      width: floatingActionButton.buttonSize,
-      padding: 0,
-      overflow: 'hidden',
-      borderRadius: '50%',
-      textAlign: 'center',
-      verticalAlign: 'bottom'
-    },
-    containerWhenMini: {
-      height: floatingActionButton.miniSize,
-      width: floatingActionButton.miniSize
-    },
-    overlay: {
-      transition: _transitions2.default.easeOut(),
-      top: 0
-    },
-    overlayWhenHovered: {
-      backgroundColor: (0, _colorManipulator.fade)(iconColor, 0.4)
-    },
-    icon: {
-      height: floatingActionButton.buttonSize,
-      lineHeight: floatingActionButton.buttonSize + 'px',
-      fill: iconColor,
-      color: iconColor
-    },
-    iconWhenMini: {
-      height: floatingActionButton.miniSize,
-      lineHeight: floatingActionButton.miniSize + 'px'
-    }
-  };
-}
-
-var FloatingActionButton = function (_Component) {
-  (0, _inherits3.default)(FloatingActionButton, _Component);
-
-  function FloatingActionButton() {
-    var _ref;
-
-    var _temp, _this, _ret;
-
-    (0, _classCallCheck3.default)(this, FloatingActionButton);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = FloatingActionButton.__proto__ || (0, _getPrototypeOf2.default)(FloatingActionButton)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-      hovered: false,
-      touch: false,
-      zDepth: undefined
-    }, _this.handleMouseDown = function (event) {
-      // only listen to left clicks
-      if (event.button === 0) {
-        _this.setState({ zDepth: _this.props.zDepth + 1 });
-      }
-      if (_this.props.onMouseDown) _this.props.onMouseDown(event);
-    }, _this.handleMouseUp = function (event) {
-      _this.setState({ zDepth: _this.props.zDepth });
-      if (_this.props.onMouseUp) {
-        _this.props.onMouseUp(event);
-      }
-    }, _this.handleMouseLeave = function (event) {
-      if (!_this.refs.container.isKeyboardFocused()) {
-        _this.setState({ zDepth: _this.props.zDepth, hovered: false });
-      }
-      if (_this.props.onMouseLeave) {
-        _this.props.onMouseLeave(event);
-      }
-    }, _this.handleMouseEnter = function (event) {
-      if (!_this.refs.container.isKeyboardFocused() && !_this.state.touch) {
-        _this.setState({ hovered: true });
-      }
-      if (_this.props.onMouseEnter) {
-        _this.props.onMouseEnter(event);
-      }
-    }, _this.handleTouchStart = function (event) {
-      _this.setState({
-        touch: true,
-        zDepth: _this.props.zDepth + 1
-      });
-      if (_this.props.onTouchStart) {
-        _this.props.onTouchStart(event);
-      }
-    }, _this.handleTouchEnd = function (event) {
-      _this.setState({
-        touch: true,
-        zDepth: _this.props.zDepth
-      });
-      if (_this.props.onTouchEnd) {
-        _this.props.onTouchEnd(event);
-      }
-    }, _this.handleKeyboardFocus = function (event, keyboardFocused) {
-      if (keyboardFocused && !_this.props.disabled) {
-        _this.setState({ zDepth: _this.props.zDepth + 1 });
-        _this.refs.overlay.style.backgroundColor = (0, _colorManipulator.fade)(getStyles(_this.props, _this.context).icon.color, 0.4);
-      } else if (!_this.state.hovered) {
-        _this.setState({ zDepth: _this.props.zDepth });
-        _this.refs.overlay.style.backgroundColor = 'transparent';
-      }
-    }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
-  }
-
-  (0, _createClass3.default)(FloatingActionButton, [{
-    key: 'componentWillMount',
-    value: function componentWillMount() {
-      this.setState({
-        zDepth: this.props.disabled ? 0 : this.props.zDepth
-      });
-    }
-  }, {
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-       true ? (0, _warning2.default)(!this.props.iconClassName || !this.props.children, 'Material-UI: You have set both an iconClassName and a child icon. ' + 'It is recommended you use only one method when adding ' + 'icons to FloatingActionButtons.') : undefined;
-    }
-  }, {
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(nextProps) {
-      var nextState = {};
-
-      if (nextProps.disabled !== this.props.disabled) {
-        nextState.zDepth = nextProps.disabled ? 0 : this.props.zDepth;
-      }
-      if (nextProps.disabled) {
-        nextState.hovered = false;
-      }
-
-      this.setState(nextState);
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var _props = this.props,
-          backgroundColor = _props.backgroundColor,
-          className = _props.className,
-          childrenProp = _props.children,
-          disabled = _props.disabled,
-          disabledColor = _props.disabledColor,
-          mini = _props.mini,
-          secondary = _props.secondary,
-          iconStyle = _props.iconStyle,
-          iconClassName = _props.iconClassName,
-          zDepth = _props.zDepth,
-          other = (0, _objectWithoutProperties3.default)(_props, ['backgroundColor', 'className', 'children', 'disabled', 'disabledColor', 'mini', 'secondary', 'iconStyle', 'iconClassName', 'zDepth']);
-      var prepareStyles = this.context.muiTheme.prepareStyles;
-
-      var styles = getStyles(this.props, this.context);
-
-      var iconElement = void 0;
-      if (iconClassName) {
-        iconElement = _react2.default.createElement(_FontIcon2.default, {
-          className: iconClassName,
-          style: (0, _simpleAssign2.default)({}, styles.icon, mini && styles.iconWhenMini, iconStyle)
-        });
-      }
-
-      var children = void 0;
-
-      if (childrenProp) {
-        children = (0, _childUtils.extendChildren)(childrenProp, function (child) {
-          return {
-            style: (0, _simpleAssign2.default)({}, styles.icon, mini && styles.iconWhenMini, iconStyle, child.props.style)
-          };
-        });
-      }
-
-      var buttonEventHandlers = disabled ? null : {
-        onMouseDown: this.handleMouseDown,
-        onMouseUp: this.handleMouseUp,
-        onMouseLeave: this.handleMouseLeave,
-        onMouseEnter: this.handleMouseEnter,
-        onTouchStart: this.handleTouchStart,
-        onTouchEnd: this.handleTouchEnd,
-        onKeyboardFocus: this.handleKeyboardFocus
-      };
-
-      return _react2.default.createElement(
-        _Paper2.default,
-        {
-          className: className,
-          style: (0, _simpleAssign2.default)(styles.root, this.props.style),
-          zDepth: this.state.zDepth,
-          circle: true
-        },
-        _react2.default.createElement(
-          _EnhancedButton2.default,
-          (0, _extends3.default)({}, other, buttonEventHandlers, {
-            ref: 'container',
-            disabled: disabled,
-            style: (0, _simpleAssign2.default)(styles.container, this.props.mini && styles.containerWhenMini, iconStyle),
-            focusRippleColor: styles.icon.color,
-            touchRippleColor: styles.icon.color
-          }),
-          _react2.default.createElement(
-            'div',
-            {
-              ref: 'overlay',
-              style: prepareStyles((0, _simpleAssign2.default)(styles.overlay, this.state.hovered && !this.props.disabled && styles.overlayWhenHovered))
-            },
-            iconElement,
-            children
-          )
-        )
-      );
-    }
-  }]);
-  return FloatingActionButton;
-}(_react.Component);
-
-FloatingActionButton.defaultProps = {
-  disabled: false,
-  mini: false,
-  secondary: false,
-  zDepth: 2
-};
-FloatingActionButton.contextTypes = {
-  muiTheme: _propTypes2.default.object.isRequired
-};
-FloatingActionButton.propTypes =  true ? {
-  /**
-   * This value will override the default background color for the button.
-   * However it will not override the default disabled background color.
-   * This has to be set separately using the disabledColor attribute.
-   */
-  backgroundColor: _propTypes2.default.string,
-  /**
-   * This is what displayed inside the floating action button; for example, a SVG Icon.
-   */
-  children: _propTypes2.default.node,
-  /**
-   * The css class name of the root element.
-   */
-  className: _propTypes2.default.string,
-  /**
-   * Disables the button if set to true.
-   */
-  disabled: _propTypes2.default.bool,
-  /**
-   * This value will override the default background color for the button when it is disabled.
-   */
-  disabledColor: _propTypes2.default.string,
-  /**
-   * The URL to link to when the button is clicked.
-   */
-  href: _propTypes2.default.string,
-  /**
-   * The icon within the FloatingActionButton is a FontIcon component.
-   * This property is the classname of the icon to be displayed inside the button.
-   * An alternative to adding an iconClassName would be to manually insert a
-   * FontIcon component or custom SvgIcon component or as a child of FloatingActionButton.
-   */
-  iconClassName: _propTypes2.default.string,
-  /**
-   * This is the equivalent to iconClassName except that it is used for
-   * overriding the inline-styles of the FontIcon component.
-   */
-  iconStyle: _propTypes2.default.object,
-  /**
-   * If true, the button will be a small floating action button.
-   */
-  mini: _propTypes2.default.bool,
-  /**
-   * Callback function fired when the button is clicked.
-   *
-   * @param {object} event Click event targeting the button.
-   */
-  onClick: _propTypes2.default.func,
-  /** @ignore */
-  onMouseDown: _propTypes2.default.func,
-  /** @ignore */
-  onMouseEnter: _propTypes2.default.func,
-  /** @ignore */
-  onMouseLeave: _propTypes2.default.func,
-  /** @ignore */
-  onMouseUp: _propTypes2.default.func,
-  /** @ignore */
-  onTouchEnd: _propTypes2.default.func,
-  /** @ignore */
-  onTouchStart: _propTypes2.default.func,
-  /**
-   * If true, the button will use the secondary button colors.
-   */
-  secondary: _propTypes2.default.bool,
-  /**
-   * Override the inline-styles of the root element.
-   */
-  style: _propTypes2.default.object,
-  /**
-   * The zDepth of the underlying `Paper` component.
-   */
-  zDepth: _propTypes4.default.zDepth
-} : undefined;
-exports.default = FloatingActionButton;
-
-/***/ }),
-
-/***/ "./node_modules/material-ui/FloatingActionButton/index.js":
-/*!****************************************************************!*\
-  !*** ./node_modules/material-ui/FloatingActionButton/index.js ***!
-  \****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = undefined;
-
-var _FloatingActionButton = __webpack_require__(/*! ./FloatingActionButton */ "./node_modules/material-ui/FloatingActionButton/FloatingActionButton.js");
-
-var _FloatingActionButton2 = _interopRequireDefault(_FloatingActionButton);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = _FloatingActionButton2.default;
-
-/***/ }),
-
-/***/ "./node_modules/material-ui/FontIcon/FontIcon.js":
-/*!*******************************************************!*\
-  !*** ./node_modules/material-ui/FontIcon/FontIcon.js ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _extends2 = __webpack_require__(/*! babel-runtime/helpers/extends */ "./node_modules/babel-runtime/helpers/extends.js");
-
-var _extends3 = _interopRequireDefault(_extends2);
-
-var _objectWithoutProperties2 = __webpack_require__(/*! babel-runtime/helpers/objectWithoutProperties */ "./node_modules/babel-runtime/helpers/objectWithoutProperties.js");
-
-var _objectWithoutProperties3 = _interopRequireDefault(_objectWithoutProperties2);
-
-var _getPrototypeOf = __webpack_require__(/*! babel-runtime/core-js/object/get-prototype-of */ "./node_modules/babel-runtime/core-js/object/get-prototype-of.js");
-
-var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
-
-var _classCallCheck2 = __webpack_require__(/*! babel-runtime/helpers/classCallCheck */ "./node_modules/babel-runtime/helpers/classCallCheck.js");
-
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-var _createClass2 = __webpack_require__(/*! babel-runtime/helpers/createClass */ "./node_modules/babel-runtime/helpers/createClass.js");
-
-var _createClass3 = _interopRequireDefault(_createClass2);
-
-var _possibleConstructorReturn2 = __webpack_require__(/*! babel-runtime/helpers/possibleConstructorReturn */ "./node_modules/babel-runtime/helpers/possibleConstructorReturn.js");
-
-var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-
-var _inherits2 = __webpack_require__(/*! babel-runtime/helpers/inherits */ "./node_modules/babel-runtime/helpers/inherits.js");
-
-var _inherits3 = _interopRequireDefault(_inherits2);
-
-var _simpleAssign = __webpack_require__(/*! simple-assign */ "./node_modules/simple-assign/index.js");
-
-var _simpleAssign2 = _interopRequireDefault(_simpleAssign);
-
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _transitions = __webpack_require__(/*! ../styles/transitions */ "./node_modules/material-ui/styles/transitions.js");
-
-var _transitions2 = _interopRequireDefault(_transitions);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function getStyles(props, context, state) {
-  var color = props.color,
-      hoverColor = props.hoverColor;
-  var baseTheme = context.muiTheme.baseTheme;
-
-  var offColor = color || baseTheme.palette.textColor;
-  var onColor = hoverColor || offColor;
-
-  return {
-    root: {
-      color: state.hovered ? onColor : offColor,
-      position: 'relative',
-      fontSize: baseTheme.spacing.iconSize,
-      display: 'inline-block',
-      userSelect: 'none',
-      transition: _transitions2.default.easeOut()
-    }
-  };
-}
-
-var FontIcon = function (_Component) {
-  (0, _inherits3.default)(FontIcon, _Component);
-
-  function FontIcon() {
-    var _ref;
-
-    var _temp, _this, _ret;
-
-    (0, _classCallCheck3.default)(this, FontIcon);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = FontIcon.__proto__ || (0, _getPrototypeOf2.default)(FontIcon)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-      hovered: false
-    }, _this.handleMouseLeave = function (event) {
-      // hover is needed only when a hoverColor is defined
-      if (_this.props.hoverColor !== undefined) {
-        _this.setState({ hovered: false });
-      }
-      if (_this.props.onMouseLeave) {
-        _this.props.onMouseLeave(event);
-      }
-    }, _this.handleMouseEnter = function (event) {
-      // hover is needed only when a hoverColor is defined
-      if (_this.props.hoverColor !== undefined) {
-        _this.setState({ hovered: true });
-      }
-      if (_this.props.onMouseEnter) {
-        _this.props.onMouseEnter(event);
-      }
-    }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
-  }
-
-  (0, _createClass3.default)(FontIcon, [{
-    key: 'render',
-    value: function render() {
-      var _props = this.props,
-          hoverColor = _props.hoverColor,
-          onMouseLeave = _props.onMouseLeave,
-          onMouseEnter = _props.onMouseEnter,
-          style = _props.style,
-          other = (0, _objectWithoutProperties3.default)(_props, ['hoverColor', 'onMouseLeave', 'onMouseEnter', 'style']);
-      var prepareStyles = this.context.muiTheme.prepareStyles;
-
-      var styles = getStyles(this.props, this.context, this.state);
-
-      return _react2.default.createElement('span', (0, _extends3.default)({}, other, {
-        onMouseLeave: this.handleMouseLeave,
-        onMouseEnter: this.handleMouseEnter,
-        style: prepareStyles((0, _simpleAssign2.default)(styles.root, style))
-      }));
-    }
-  }]);
-  return FontIcon;
-}(_react.Component);
-
-FontIcon.muiName = 'FontIcon';
-FontIcon.defaultProps = {
-  onMouseEnter: function onMouseEnter() {},
-  onMouseLeave: function onMouseLeave() {}
-};
-FontIcon.contextTypes = {
-  muiTheme: _propTypes2.default.object.isRequired
-};
-FontIcon.propTypes =  true ? {
-  /**
-   * This is the font color of the font icon. If not specified,
-   * this component will default to muiTheme.palette.textColor.
-   */
-  color: _propTypes2.default.string,
-  /**
-   * This is the icon color when the mouse hovers over the icon.
-   */
-  hoverColor: _propTypes2.default.string,
-  /** @ignore */
-  onMouseEnter: _propTypes2.default.func,
-  /** @ignore */
-  onMouseLeave: _propTypes2.default.func,
-  /**
-   * Override the inline-styles of the root element.
-   */
-  style: _propTypes2.default.object
-} : undefined;
-exports.default = FontIcon;
-
-/***/ }),
-
-/***/ "./node_modules/material-ui/FontIcon/index.js":
-/*!****************************************************!*\
-  !*** ./node_modules/material-ui/FontIcon/index.js ***!
-  \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = undefined;
-
-var _FontIcon = __webpack_require__(/*! ./FontIcon */ "./node_modules/material-ui/FontIcon/FontIcon.js");
-
-var _FontIcon2 = _interopRequireDefault(_FontIcon);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = _FontIcon2.default;
-
-/***/ }),
-
 /***/ "./node_modules/material-ui/Paper/Paper.js":
 /*!*************************************************!*\
   !*** ./node_modules/material-ui/Paper/Paper.js ***!
@@ -57336,6 +56714,527 @@ var _Paper2 = _interopRequireDefault(_Paper);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = _Paper2.default;
+
+/***/ }),
+
+/***/ "./node_modules/material-ui/RaisedButton/RaisedButton.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/material-ui/RaisedButton/RaisedButton.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends2 = __webpack_require__(/*! babel-runtime/helpers/extends */ "./node_modules/babel-runtime/helpers/extends.js");
+
+var _extends3 = _interopRequireDefault(_extends2);
+
+var _objectWithoutProperties2 = __webpack_require__(/*! babel-runtime/helpers/objectWithoutProperties */ "./node_modules/babel-runtime/helpers/objectWithoutProperties.js");
+
+var _objectWithoutProperties3 = _interopRequireDefault(_objectWithoutProperties2);
+
+var _getPrototypeOf = __webpack_require__(/*! babel-runtime/core-js/object/get-prototype-of */ "./node_modules/babel-runtime/core-js/object/get-prototype-of.js");
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(/*! babel-runtime/helpers/classCallCheck */ "./node_modules/babel-runtime/helpers/classCallCheck.js");
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(/*! babel-runtime/helpers/createClass */ "./node_modules/babel-runtime/helpers/createClass.js");
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(/*! babel-runtime/helpers/possibleConstructorReturn */ "./node_modules/babel-runtime/helpers/possibleConstructorReturn.js");
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(/*! babel-runtime/helpers/inherits */ "./node_modules/babel-runtime/helpers/inherits.js");
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _simpleAssign = __webpack_require__(/*! simple-assign */ "./node_modules/simple-assign/index.js");
+
+var _simpleAssign2 = _interopRequireDefault(_simpleAssign);
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _transitions = __webpack_require__(/*! ../styles/transitions */ "./node_modules/material-ui/styles/transitions.js");
+
+var _transitions2 = _interopRequireDefault(_transitions);
+
+var _colorManipulator = __webpack_require__(/*! ../utils/colorManipulator */ "./node_modules/material-ui/utils/colorManipulator.js");
+
+var _EnhancedButton = __webpack_require__(/*! ../internal/EnhancedButton */ "./node_modules/material-ui/internal/EnhancedButton.js");
+
+var _EnhancedButton2 = _interopRequireDefault(_EnhancedButton);
+
+var _Paper = __webpack_require__(/*! ../Paper */ "./node_modules/material-ui/Paper/index.js");
+
+var _Paper2 = _interopRequireDefault(_Paper);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function validateLabel(props, propName, componentName) {
+  if (true) {
+    if (!props.children && props.label !== 0 && !props.label && !props.icon) {
+      return new Error('Required prop label or children or icon was not specified in ' + componentName + '.');
+    }
+  }
+}
+
+function getStyles(props, context, state) {
+  var _context$muiTheme = context.muiTheme,
+      baseTheme = _context$muiTheme.baseTheme,
+      button = _context$muiTheme.button,
+      raisedButton = _context$muiTheme.raisedButton,
+      borderRadius = _context$muiTheme.borderRadius;
+  var disabled = props.disabled,
+      disabledBackgroundColor = props.disabledBackgroundColor,
+      disabledLabelColor = props.disabledLabelColor,
+      fullWidth = props.fullWidth,
+      icon = props.icon,
+      label = props.label,
+      labelPosition = props.labelPosition,
+      primary = props.primary,
+      secondary = props.secondary,
+      style = props.style;
+
+
+  var amount = primary || secondary ? 0.4 : 0.08;
+
+  var backgroundColor = raisedButton.color;
+  var labelColor = raisedButton.textColor;
+
+  if (disabled) {
+    backgroundColor = disabledBackgroundColor || raisedButton.disabledColor;
+    labelColor = disabledLabelColor || raisedButton.disabledTextColor;
+  } else if (primary) {
+    backgroundColor = raisedButton.primaryColor;
+    labelColor = raisedButton.primaryTextColor;
+  } else if (secondary) {
+    backgroundColor = raisedButton.secondaryColor;
+    labelColor = raisedButton.secondaryTextColor;
+  } else {
+    if (props.backgroundColor) {
+      backgroundColor = props.backgroundColor;
+    }
+    if (props.labelColor) {
+      labelColor = props.labelColor;
+    }
+  }
+
+  var buttonHeight = style && style.height || button.height;
+
+  return {
+    root: {
+      display: 'inline-block',
+      transition: _transitions2.default.easeOut(),
+      minWidth: fullWidth ? '100%' : button.minWidth
+    },
+    button: {
+      height: buttonHeight,
+      lineHeight: buttonHeight + 'px',
+      width: '100%',
+      padding: 0,
+      borderRadius: borderRadius,
+      transition: _transitions2.default.easeOut(),
+      backgroundColor: backgroundColor,
+      // That's the default value for a button but not a link
+      textAlign: 'center'
+    },
+    label: {
+      position: 'relative',
+      opacity: 1,
+      fontSize: raisedButton.fontSize,
+      letterSpacing: 0,
+      textTransform: raisedButton.textTransform || button.textTransform || 'uppercase',
+      fontWeight: raisedButton.fontWeight,
+      margin: 0,
+      userSelect: 'none',
+      paddingLeft: icon && labelPosition !== 'before' ? 8 : baseTheme.spacing.desktopGutterLess,
+      paddingRight: icon && labelPosition === 'before' ? 8 : baseTheme.spacing.desktopGutterLess,
+      color: labelColor
+    },
+    icon: {
+      verticalAlign: 'middle',
+      marginLeft: label && labelPosition !== 'before' ? 12 : 0,
+      marginRight: label && labelPosition === 'before' ? 12 : 0
+    },
+    overlay: {
+      height: buttonHeight,
+      borderRadius: borderRadius,
+      backgroundColor: (state.keyboardFocused || state.hovered) && !disabled && (0, _colorManipulator.fade)(labelColor, amount),
+      transition: _transitions2.default.easeOut(),
+      top: 0
+    },
+    ripple: {
+      color: labelColor,
+      opacity: !(primary || secondary) ? 0.1 : 0.16
+    }
+  };
+}
+
+var RaisedButton = function (_Component) {
+  (0, _inherits3.default)(RaisedButton, _Component);
+
+  function RaisedButton() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    (0, _classCallCheck3.default)(this, RaisedButton);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = RaisedButton.__proto__ || (0, _getPrototypeOf2.default)(RaisedButton)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      hovered: false,
+      keyboardFocused: false,
+      touched: false,
+      initialZDepth: 0,
+      zDepth: 0
+    }, _this.handleMouseDown = function (event) {
+      // only listen to left clicks
+      if (event.button === 0) {
+        _this.setState({
+          zDepth: _this.state.initialZDepth + 1
+        });
+      }
+      if (_this.props.onMouseDown) {
+        _this.props.onMouseDown(event);
+      }
+    }, _this.handleMouseUp = function (event) {
+      _this.setState({
+        zDepth: _this.state.initialZDepth
+      });
+      if (_this.props.onMouseUp) {
+        _this.props.onMouseUp(event);
+      }
+    }, _this.handleMouseLeave = function (event) {
+      if (!_this.state.keyboardFocused) {
+        _this.setState({
+          zDepth: _this.state.initialZDepth,
+          hovered: false
+        });
+      }
+      if (_this.props.onMouseLeave) {
+        _this.props.onMouseLeave(event);
+      }
+    }, _this.handleMouseEnter = function (event) {
+      if (!_this.state.keyboardFocused && !_this.state.touched) {
+        _this.setState({
+          hovered: true
+        });
+      }
+      if (_this.props.onMouseEnter) {
+        _this.props.onMouseEnter(event);
+      }
+    }, _this.handleTouchStart = function (event) {
+      _this.setState({
+        touched: true,
+        zDepth: _this.state.initialZDepth + 1
+      });
+
+      if (_this.props.onTouchStart) {
+        _this.props.onTouchStart(event);
+      }
+    }, _this.handleTouchEnd = function (event) {
+      _this.setState({
+        touched: true,
+        zDepth: _this.state.initialZDepth
+      });
+
+      if (_this.props.onTouchEnd) {
+        _this.props.onTouchEnd(event);
+      }
+    }, _this.handleKeyboardFocus = function (event, keyboardFocused) {
+      var zDepth = keyboardFocused && !_this.props.disabled ? _this.state.initialZDepth + 1 : _this.state.initialZDepth;
+
+      _this.setState({
+        zDepth: zDepth,
+        keyboardFocused: keyboardFocused
+      });
+    }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
+  }
+
+  (0, _createClass3.default)(RaisedButton, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      var zDepth = this.props.disabled ? 0 : 1;
+      this.setState({
+        zDepth: zDepth,
+        initialZDepth: zDepth
+      });
+    }
+  }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      var zDepth = nextProps.disabled ? 0 : 1;
+      var nextState = {
+        zDepth: zDepth,
+        initialZDepth: zDepth
+      };
+
+      if (nextProps.disabled) {
+        nextState.hovered = false;
+      }
+
+      this.setState(nextState);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          backgroundColor = _props.backgroundColor,
+          buttonStyle = _props.buttonStyle,
+          children = _props.children,
+          className = _props.className,
+          disabled = _props.disabled,
+          disabledBackgroundColor = _props.disabledBackgroundColor,
+          disabledLabelColor = _props.disabledLabelColor,
+          fullWidth = _props.fullWidth,
+          icon = _props.icon,
+          label = _props.label,
+          labelColor = _props.labelColor,
+          labelPosition = _props.labelPosition,
+          labelStyle = _props.labelStyle,
+          overlayStyle = _props.overlayStyle,
+          primary = _props.primary,
+          rippleStyle = _props.rippleStyle,
+          secondary = _props.secondary,
+          style = _props.style,
+          other = (0, _objectWithoutProperties3.default)(_props, ['backgroundColor', 'buttonStyle', 'children', 'className', 'disabled', 'disabledBackgroundColor', 'disabledLabelColor', 'fullWidth', 'icon', 'label', 'labelColor', 'labelPosition', 'labelStyle', 'overlayStyle', 'primary', 'rippleStyle', 'secondary', 'style']);
+      var prepareStyles = this.context.muiTheme.prepareStyles;
+
+      var styles = getStyles(this.props, this.context, this.state);
+      var mergedRippleStyles = (0, _simpleAssign2.default)({}, styles.ripple, rippleStyle);
+
+      var buttonEventHandlers = disabled ? {} : {
+        onMouseDown: this.handleMouseDown,
+        onMouseUp: this.handleMouseUp,
+        onMouseLeave: this.handleMouseLeave,
+        onMouseEnter: this.handleMouseEnter,
+        onTouchStart: this.handleTouchStart,
+        onTouchEnd: this.handleTouchEnd,
+        onKeyboardFocus: this.handleKeyboardFocus
+      };
+
+      var labelElement = label && _react2.default.createElement(
+        'span',
+        { style: prepareStyles((0, _simpleAssign2.default)(styles.label, labelStyle)), key: 'labelElement' },
+        label
+      );
+
+      var iconCloned = icon && (0, _react.cloneElement)(icon, {
+        color: icon.props.color || styles.label.color,
+        style: (0, _simpleAssign2.default)(styles.icon, icon.props.style),
+        key: 'iconCloned'
+      });
+
+      // Place label before or after children.
+      var enhancedButtonChildren = labelPosition === 'before' ? [labelElement, iconCloned, children] : [children, iconCloned, labelElement];
+
+      return _react2.default.createElement(
+        _Paper2.default,
+        {
+          className: className,
+          style: (0, _simpleAssign2.default)(styles.root, style),
+          zDepth: this.state.zDepth
+        },
+        _react2.default.createElement(
+          _EnhancedButton2.default,
+          (0, _extends3.default)({}, other, buttonEventHandlers, {
+            ref: 'container',
+            disabled: disabled,
+            style: (0, _simpleAssign2.default)(styles.button, buttonStyle),
+            focusRippleColor: mergedRippleStyles.color,
+            touchRippleColor: mergedRippleStyles.color,
+            focusRippleOpacity: mergedRippleStyles.opacity,
+            touchRippleOpacity: mergedRippleStyles.opacity
+          }),
+          _react2.default.createElement(
+            'div',
+            {
+              ref: 'overlay',
+              style: prepareStyles((0, _simpleAssign2.default)(styles.overlay, overlayStyle))
+            },
+            enhancedButtonChildren
+          )
+        )
+      );
+    }
+  }]);
+  return RaisedButton;
+}(_react.Component);
+
+RaisedButton.muiName = 'RaisedButton';
+RaisedButton.defaultProps = {
+  disabled: false,
+  labelPosition: 'after',
+  fullWidth: false,
+  primary: false,
+  secondary: false
+};
+RaisedButton.contextTypes = {
+  muiTheme: _propTypes2.default.object.isRequired
+};
+RaisedButton.propTypes =  true ? {
+  /**
+   * Override the default background color for the button,
+   * but not the default disabled background color
+   * (use `disabledBackgroundColor` for this).
+   */
+  backgroundColor: _propTypes2.default.string,
+  /**
+   * Override the inline-styles of the button element.
+   */
+  buttonStyle: _propTypes2.default.object,
+  /**
+   * The content of the button.
+   * If a label is provided via the `label` prop, the text within the label
+   * will be displayed in addition to the content provided here.
+   */
+  children: _propTypes2.default.node,
+  /**
+   * The CSS class name of the root element.
+   */
+  className: _propTypes2.default.string,
+  /**
+    * The element to use as the container for the RaisedButton. Either a string to
+    * use a DOM element or a ReactElement. This is useful for wrapping the
+    * RaisedButton in a custom Link component. If a ReactElement is given, ensure
+    * that it passes all of its given props through to the underlying DOM
+    * element and renders its children prop for proper integration.
+    */
+  containerElement: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.element]),
+  /**
+   * If true, the element's ripple effect will be disabled.
+   */
+  disableTouchRipple: _propTypes2.default.bool,
+  /**
+   * If true, the button will be disabled.
+   */
+  disabled: _propTypes2.default.bool,
+  /**
+   * Override the default background color for the button
+   * when it is disabled.
+   */
+  disabledBackgroundColor: _propTypes2.default.string,
+  /**
+   * The color of the button's label when the button is disabled.
+   */
+  disabledLabelColor: _propTypes2.default.string,
+  /**
+   * If true, the button will take up the full width of its container.
+   */
+  fullWidth: _propTypes2.default.bool,
+  /**
+   * The URL to link to when the button is clicked.
+   */
+  href: _propTypes2.default.string,
+  /**
+   * An icon to be displayed within the button.
+   */
+  icon: _propTypes2.default.node,
+  /**
+   * The label to be displayed within the button.
+   * If content is provided via the `children` prop, that content will be
+   * displayed in addition to the label provided here.
+   */
+  label: validateLabel,
+  /**
+   * The color of the button's label.
+   */
+  labelColor: _propTypes2.default.string,
+  /**
+   * The position of the button's label relative to the button's `children`.
+   */
+  labelPosition: _propTypes2.default.oneOf(['before', 'after']),
+  /**
+   * Override the inline-styles of the button's label element.
+   */
+  labelStyle: _propTypes2.default.object,
+  /**
+   * Callback function fired when the button is clicked.
+   *
+   * @param {object} event Click event targeting the button.
+   */
+  onClick: _propTypes2.default.func,
+  /** @ignore */
+  onMouseDown: _propTypes2.default.func,
+  /** @ignore */
+  onMouseEnter: _propTypes2.default.func,
+  /** @ignore */
+  onMouseLeave: _propTypes2.default.func,
+  /** @ignore */
+  onMouseUp: _propTypes2.default.func,
+  /** @ignore */
+  onTouchEnd: _propTypes2.default.func,
+  /** @ignore */
+  onTouchStart: _propTypes2.default.func,
+  /**
+   * Override the inline style of the button overlay.
+   */
+  overlayStyle: _propTypes2.default.object,
+  /**
+   * If true, the button will use the theme's primary color.
+   */
+  primary: _propTypes2.default.bool,
+  /**
+   * Override the inline style of the ripple element.
+   */
+  rippleStyle: _propTypes2.default.object,
+  /**
+   * If true, the button will use the theme's secondary color.
+   * If both `secondary` and `primary` are true, the button will use
+   * the theme's primary color.
+   */
+  secondary: _propTypes2.default.bool,
+  /**
+   * Override the inline-styles of the root element.
+   */
+  style: _propTypes2.default.object
+} : undefined;
+exports.default = RaisedButton;
+
+/***/ }),
+
+/***/ "./node_modules/material-ui/RaisedButton/index.js":
+/*!********************************************************!*\
+  !*** ./node_modules/material-ui/RaisedButton/index.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = undefined;
+
+var _RaisedButton = __webpack_require__(/*! ./RaisedButton */ "./node_modules/material-ui/RaisedButton/RaisedButton.js");
+
+var _RaisedButton2 = _interopRequireDefault(_RaisedButton);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _RaisedButton2.default;
 
 /***/ }),
 
@@ -59667,6 +59566,1270 @@ exports.TableHeaderColumn = _TableHeaderColumn3.default;
 exports.TableRow = _TableRow3.default;
 exports.TableRowColumn = _TableRowColumn3.default;
 exports.default = _Table3.default;
+
+/***/ }),
+
+/***/ "./node_modules/material-ui/TextField/EnhancedTextarea.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/material-ui/TextField/EnhancedTextarea.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends2 = __webpack_require__(/*! babel-runtime/helpers/extends */ "./node_modules/babel-runtime/helpers/extends.js");
+
+var _extends3 = _interopRequireDefault(_extends2);
+
+var _objectWithoutProperties2 = __webpack_require__(/*! babel-runtime/helpers/objectWithoutProperties */ "./node_modules/babel-runtime/helpers/objectWithoutProperties.js");
+
+var _objectWithoutProperties3 = _interopRequireDefault(_objectWithoutProperties2);
+
+var _getPrototypeOf = __webpack_require__(/*! babel-runtime/core-js/object/get-prototype-of */ "./node_modules/babel-runtime/core-js/object/get-prototype-of.js");
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(/*! babel-runtime/helpers/classCallCheck */ "./node_modules/babel-runtime/helpers/classCallCheck.js");
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(/*! babel-runtime/helpers/createClass */ "./node_modules/babel-runtime/helpers/createClass.js");
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(/*! babel-runtime/helpers/possibleConstructorReturn */ "./node_modules/babel-runtime/helpers/possibleConstructorReturn.js");
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(/*! babel-runtime/helpers/inherits */ "./node_modules/babel-runtime/helpers/inherits.js");
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _simpleAssign = __webpack_require__(/*! simple-assign */ "./node_modules/simple-assign/index.js");
+
+var _simpleAssign2 = _interopRequireDefault(_simpleAssign);
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _reactEventListener = __webpack_require__(/*! react-event-listener */ "./node_modules/react-event-listener/dist/react-event-listener.cjs.js");
+
+var _reactEventListener2 = _interopRequireDefault(_reactEventListener);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var rowsHeight = 24;
+
+function getStyles(props, context, state) {
+  return {
+    root: {
+      position: 'relative' // because the shadow has position: 'absolute'
+    },
+    textarea: {
+      height: state.height,
+      width: '100%',
+      resize: 'none',
+      font: 'inherit',
+      padding: 0,
+      cursor: 'inherit'
+    },
+    shadow: {
+      resize: 'none',
+      // Overflow also needed to here to remove the extra row
+      // added to textareas in Firefox.
+      overflow: 'hidden',
+      // Visibility needed to hide the extra text area on ipads
+      visibility: 'hidden',
+      position: 'absolute',
+      height: 'auto'
+    }
+  };
+}
+
+var EnhancedTextarea = function (_Component) {
+  (0, _inherits3.default)(EnhancedTextarea, _Component);
+
+  function EnhancedTextarea() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    (0, _classCallCheck3.default)(this, EnhancedTextarea);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = EnhancedTextarea.__proto__ || (0, _getPrototypeOf2.default)(EnhancedTextarea)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      height: null
+    }, _this.handleResize = function (event) {
+      _this.syncHeightWithShadow(_this.props.value, event);
+    }, _this.handleChange = function (event) {
+      if (!_this.props.hasOwnProperty('value')) {
+        _this.syncHeightWithShadow(event.target.value);
+      }
+
+      if (_this.props.hasOwnProperty('valueLink')) {
+        _this.props.valueLink.requestChange(event.target.value);
+      }
+
+      if (_this.props.onChange) {
+        _this.props.onChange(event);
+      }
+    }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
+  }
+
+  (0, _createClass3.default)(EnhancedTextarea, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      this.setState({
+        height: this.props.rows * rowsHeight
+      });
+    }
+  }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.syncHeightWithShadow(this.props.value);
+    }
+  }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      if (nextProps.value !== this.props.value || nextProps.rowsMax !== this.props.rowsMax) {
+        this.syncHeightWithShadow(nextProps.value, null, nextProps);
+      }
+    }
+  }, {
+    key: 'getInputNode',
+    value: function getInputNode() {
+      return this.refs.input;
+    }
+  }, {
+    key: 'setValue',
+    value: function setValue(value) {
+      this.getInputNode().value = value;
+      this.syncHeightWithShadow(value);
+    }
+  }, {
+    key: 'syncHeightWithShadow',
+    value: function syncHeightWithShadow(newValue, event, props) {
+      var shadow = this.refs.shadow;
+      var displayText = this.props.hintText && (newValue === '' || newValue === undefined || newValue === null) ? this.props.hintText : newValue;
+
+      if (displayText !== undefined) {
+        shadow.value = displayText;
+      }
+
+      var newHeight = shadow.scrollHeight;
+
+      // Guarding for jsdom, where scrollHeight isn't present.
+      // See https://github.com/tmpvar/jsdom/issues/1013
+      if (newHeight === undefined) return;
+
+      props = props || this.props;
+
+      if (props.rowsMax >= props.rows) {
+        newHeight = Math.min(props.rowsMax * rowsHeight, newHeight);
+      }
+
+      newHeight = Math.max(newHeight, rowsHeight);
+
+      if (this.state.height !== newHeight) {
+        var input = this.refs.input;
+        var cursorPosition = input.selectionStart;
+        this.setState({
+          height: newHeight
+        }, function () {
+          input.setSelectionRange(cursorPosition, cursorPosition);
+        });
+
+        if (props.onHeightChange) {
+          props.onHeightChange(event, newHeight);
+        }
+      }
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          onChange = _props.onChange,
+          onHeightChange = _props.onHeightChange,
+          rows = _props.rows,
+          rowsMax = _props.rowsMax,
+          shadowStyle = _props.shadowStyle,
+          style = _props.style,
+          hintText = _props.hintText,
+          textareaStyle = _props.textareaStyle,
+          valueLink = _props.valueLink,
+          other = (0, _objectWithoutProperties3.default)(_props, ['onChange', 'onHeightChange', 'rows', 'rowsMax', 'shadowStyle', 'style', 'hintText', 'textareaStyle', 'valueLink']);
+      var prepareStyles = this.context.muiTheme.prepareStyles;
+
+      var styles = getStyles(this.props, this.context, this.state);
+      var rootStyles = (0, _simpleAssign2.default)(styles.root, style);
+      var textareaStyles = (0, _simpleAssign2.default)(styles.textarea, textareaStyle);
+      var shadowStyles = (0, _simpleAssign2.default)({}, textareaStyles, styles.shadow, shadowStyle);
+      var props = {};
+
+      if (this.props.hasOwnProperty('valueLink')) {
+        other.value = valueLink.value;
+        props.valueLink = valueLink;
+      }
+
+      return _react2.default.createElement(
+        'div',
+        { style: prepareStyles(rootStyles) },
+        _react2.default.createElement(_reactEventListener2.default, { target: 'window', onResize: this.handleResize }),
+        _react2.default.createElement('textarea', (0, _extends3.default)({
+          ref: 'shadow',
+          style: prepareStyles(shadowStyles),
+          tabIndex: '-1',
+          rows: this.props.rows,
+          defaultValue: this.props.defaultValue,
+          readOnly: true,
+          value: this.props.value
+        }, props)),
+        _react2.default.createElement('textarea', (0, _extends3.default)({}, other, {
+          ref: 'input',
+          rows: this.props.rows,
+          style: prepareStyles(textareaStyles),
+          onChange: this.handleChange
+        }))
+      );
+    }
+  }]);
+  return EnhancedTextarea;
+}(_react.Component);
+
+EnhancedTextarea.defaultProps = {
+  rows: 1
+};
+EnhancedTextarea.contextTypes = {
+  muiTheme: _propTypes2.default.object.isRequired
+};
+EnhancedTextarea.propTypes =  true ? {
+  defaultValue: _propTypes2.default.any,
+  disabled: _propTypes2.default.bool,
+  hintText: _propTypes2.default.node,
+  onChange: _propTypes2.default.func,
+  onHeightChange: _propTypes2.default.func,
+  rows: _propTypes2.default.number,
+  rowsMax: _propTypes2.default.number,
+  shadowStyle: _propTypes2.default.object,
+  /**
+   * Override the inline-styles of the root element.
+   */
+  style: _propTypes2.default.object,
+  textareaStyle: _propTypes2.default.object,
+  value: _propTypes2.default.string,
+  valueLink: _propTypes2.default.object
+} : undefined;
+exports.default = EnhancedTextarea;
+
+/***/ }),
+
+/***/ "./node_modules/material-ui/TextField/TextField.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/material-ui/TextField/TextField.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends2 = __webpack_require__(/*! babel-runtime/helpers/extends */ "./node_modules/babel-runtime/helpers/extends.js");
+
+var _extends3 = _interopRequireDefault(_extends2);
+
+var _objectWithoutProperties2 = __webpack_require__(/*! babel-runtime/helpers/objectWithoutProperties */ "./node_modules/babel-runtime/helpers/objectWithoutProperties.js");
+
+var _objectWithoutProperties3 = _interopRequireDefault(_objectWithoutProperties2);
+
+var _getPrototypeOf = __webpack_require__(/*! babel-runtime/core-js/object/get-prototype-of */ "./node_modules/babel-runtime/core-js/object/get-prototype-of.js");
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(/*! babel-runtime/helpers/classCallCheck */ "./node_modules/babel-runtime/helpers/classCallCheck.js");
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(/*! babel-runtime/helpers/createClass */ "./node_modules/babel-runtime/helpers/createClass.js");
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(/*! babel-runtime/helpers/possibleConstructorReturn */ "./node_modules/babel-runtime/helpers/possibleConstructorReturn.js");
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(/*! babel-runtime/helpers/inherits */ "./node_modules/babel-runtime/helpers/inherits.js");
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _simpleAssign = __webpack_require__(/*! simple-assign */ "./node_modules/simple-assign/index.js");
+
+var _simpleAssign2 = _interopRequireDefault(_simpleAssign);
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _reactDom = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _shallowEqual = __webpack_require__(/*! recompose/shallowEqual */ "./node_modules/recompose/shallowEqual.js");
+
+var _shallowEqual2 = _interopRequireDefault(_shallowEqual);
+
+var _transitions = __webpack_require__(/*! ../styles/transitions */ "./node_modules/material-ui/styles/transitions.js");
+
+var _transitions2 = _interopRequireDefault(_transitions);
+
+var _EnhancedTextarea = __webpack_require__(/*! ./EnhancedTextarea */ "./node_modules/material-ui/TextField/EnhancedTextarea.js");
+
+var _EnhancedTextarea2 = _interopRequireDefault(_EnhancedTextarea);
+
+var _TextFieldHint = __webpack_require__(/*! ./TextFieldHint */ "./node_modules/material-ui/TextField/TextFieldHint.js");
+
+var _TextFieldHint2 = _interopRequireDefault(_TextFieldHint);
+
+var _TextFieldLabel = __webpack_require__(/*! ./TextFieldLabel */ "./node_modules/material-ui/TextField/TextFieldLabel.js");
+
+var _TextFieldLabel2 = _interopRequireDefault(_TextFieldLabel);
+
+var _TextFieldUnderline = __webpack_require__(/*! ./TextFieldUnderline */ "./node_modules/material-ui/TextField/TextFieldUnderline.js");
+
+var _TextFieldUnderline2 = _interopRequireDefault(_TextFieldUnderline);
+
+var _warning = __webpack_require__(/*! warning */ "./node_modules/warning/browser.js");
+
+var _warning2 = _interopRequireDefault(_warning);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var getStyles = function getStyles(props, context, state) {
+  var _context$muiTheme = context.muiTheme,
+      baseTheme = _context$muiTheme.baseTheme,
+      _context$muiTheme$tex = _context$muiTheme.textField,
+      floatingLabelColor = _context$muiTheme$tex.floatingLabelColor,
+      focusColor = _context$muiTheme$tex.focusColor,
+      textColor = _context$muiTheme$tex.textColor,
+      disabledTextColor = _context$muiTheme$tex.disabledTextColor,
+      backgroundColor = _context$muiTheme$tex.backgroundColor,
+      errorColor = _context$muiTheme$tex.errorColor;
+
+
+  var styles = {
+    root: {
+      fontSize: 16,
+      lineHeight: '24px',
+      width: props.fullWidth ? '100%' : 256,
+      height: (props.rows - 1) * 24 + (props.floatingLabelText ? 72 : 48),
+      display: 'inline-block',
+      position: 'relative',
+      backgroundColor: backgroundColor,
+      fontFamily: baseTheme.fontFamily,
+      transition: _transitions2.default.easeOut('200ms', 'height'),
+      cursor: props.disabled ? 'not-allowed' : 'auto'
+    },
+    error: {
+      position: 'relative',
+      bottom: 2,
+      fontSize: 12,
+      lineHeight: '12px',
+      color: errorColor,
+      transition: _transitions2.default.easeOut()
+    },
+    floatingLabel: {
+      color: props.disabled ? disabledTextColor : floatingLabelColor,
+      pointerEvents: 'none'
+    },
+    input: {
+      padding: 0,
+      position: 'relative',
+      width: '100%',
+      border: 'none',
+      outline: 'none',
+      backgroundColor: 'rgba(0,0,0,0)',
+      color: props.disabled ? disabledTextColor : textColor,
+      cursor: 'inherit',
+      font: 'inherit',
+      WebkitOpacity: 1,
+      WebkitTapHighlightColor: 'rgba(0,0,0,0)' // Remove mobile color flashing (deprecated style).
+    },
+    inputNative: {
+      appearance: 'textfield' // Improve type search style.
+    }
+  };
+
+  styles.textarea = (0, _simpleAssign2.default)({}, styles.input, {
+    marginTop: props.floatingLabelText ? 36 : 12,
+    marginBottom: props.floatingLabelText ? -36 : -12,
+    boxSizing: 'border-box',
+    font: 'inherit'
+  });
+
+  // Do not assign a height to the textarea as he handles it on his own.
+  styles.input.height = '100%';
+
+  if (state.isFocused) {
+    styles.floatingLabel.color = focusColor;
+  }
+
+  if (props.floatingLabelText) {
+    styles.input.boxSizing = 'border-box';
+
+    if (!props.multiLine) {
+      styles.input.marginTop = 14;
+    }
+
+    if (state.errorText) {
+      styles.error.bottom = !props.multiLine ? styles.error.fontSize + 3 : 3;
+    }
+  }
+
+  if (state.errorText) {
+    if (state.isFocused) {
+      styles.floatingLabel.color = styles.error.color;
+    }
+  }
+
+  return styles;
+};
+
+/**
+ * Check if a value is valid to be displayed inside an input.
+ *
+ * @param The value to check.
+ * @returns True if the string provided is valid, false otherwise.
+ */
+function isValid(value) {
+  return value !== '' && value !== undefined && value !== null && !(Array.isArray(value) && value.length === 0);
+}
+
+var TextField = function (_Component) {
+  (0, _inherits3.default)(TextField, _Component);
+
+  function TextField() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    (0, _classCallCheck3.default)(this, TextField);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = TextField.__proto__ || (0, _getPrototypeOf2.default)(TextField)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      isFocused: false,
+      errorText: undefined,
+      hasValue: false
+    }, _this.handleInputBlur = function (event) {
+      _this.setState({ isFocused: false });
+      if (_this.props.onBlur) {
+        _this.props.onBlur(event);
+      }
+    }, _this.handleInputChange = function (event) {
+      if (!_this.props.hasOwnProperty('value')) {
+        _this.setState({ hasValue: isValid(event.target.value) });
+      }
+      if (_this.props.onChange) {
+        _this.props.onChange(event, event.target.value);
+      }
+    }, _this.handleInputFocus = function (event) {
+      if (_this.props.disabled) {
+        return;
+      }
+      _this.setState({ isFocused: true });
+      if (_this.props.onFocus) {
+        _this.props.onFocus(event);
+      }
+    }, _this.handleHeightChange = function (event, height) {
+      var newHeight = height + 24;
+      if (_this.props.floatingLabelText) {
+        newHeight += 24;
+      }
+      _reactDom2.default.findDOMNode(_this).style.height = newHeight + 'px';
+    }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
+  }
+
+  (0, _createClass3.default)(TextField, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      var _props = this.props,
+          children = _props.children,
+          name = _props.name,
+          hintText = _props.hintText,
+          floatingLabelText = _props.floatingLabelText,
+          id = _props.id;
+
+
+      var propsLeaf = children ? children.props : this.props;
+
+      this.setState({
+        errorText: this.props.errorText,
+        hasValue: isValid(propsLeaf.value) || isValid(propsLeaf.defaultValue)
+      });
+
+       true ? (0, _warning2.default)(name || hintText || floatingLabelText || id, 'Material-UI: We don\'t have enough information\n      to build a robust unique id for the TextField component. Please provide an id or a name.') : undefined;
+
+      var uniqueId = name + '-' + hintText + '-' + floatingLabelText + '-' + Math.floor(Math.random() * 0xFFFF);
+      this.uniqueId = uniqueId.replace(/[^A-Za-z0-9-]/gi, '');
+    }
+  }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      if (nextProps.disabled && !this.props.disabled) {
+        this.setState({
+          isFocused: false
+        });
+      }
+
+      if (nextProps.errorText !== this.props.errorText) {
+        this.setState({
+          errorText: nextProps.errorText
+        });
+      }
+
+      if (nextProps.children && nextProps.children.props) {
+        nextProps = nextProps.children.props;
+      }
+
+      if (nextProps.hasOwnProperty('value')) {
+        var hasValue = isValid(nextProps.value);
+
+        this.setState({
+          hasValue: hasValue
+        });
+      }
+    }
+  }, {
+    key: 'shouldComponentUpdate',
+    value: function shouldComponentUpdate(nextProps, nextState, nextContext) {
+      return !(0, _shallowEqual2.default)(this.props, nextProps) || !(0, _shallowEqual2.default)(this.state, nextState) || !(0, _shallowEqual2.default)(this.context, nextContext);
+    }
+  }, {
+    key: 'blur',
+    value: function blur() {
+      if (this.input) {
+        this.getInputNode().blur();
+      }
+    }
+  }, {
+    key: 'focus',
+    value: function focus() {
+      if (this.input) {
+        this.getInputNode().focus();
+      }
+    }
+  }, {
+    key: 'select',
+    value: function select() {
+      if (this.input) {
+        this.getInputNode().select();
+      }
+    }
+  }, {
+    key: 'getValue',
+    value: function getValue() {
+      return this.input ? this.getInputNode().value : undefined;
+    }
+  }, {
+    key: 'getInputNode',
+    value: function getInputNode() {
+      return this.props.children || this.props.multiLine ? this.input.getInputNode() : _reactDom2.default.findDOMNode(this.input);
+    }
+  }, {
+    key: '_isControlled',
+    value: function _isControlled() {
+      return this.props.hasOwnProperty('value');
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      var _props2 = this.props,
+          children = _props2.children,
+          className = _props2.className,
+          disabled = _props2.disabled,
+          errorStyle = _props2.errorStyle,
+          errorText = _props2.errorText,
+          floatingLabelFixed = _props2.floatingLabelFixed,
+          floatingLabelFocusStyle = _props2.floatingLabelFocusStyle,
+          floatingLabelShrinkStyle = _props2.floatingLabelShrinkStyle,
+          floatingLabelStyle = _props2.floatingLabelStyle,
+          floatingLabelText = _props2.floatingLabelText,
+          fullWidth = _props2.fullWidth,
+          hintText = _props2.hintText,
+          hintStyle = _props2.hintStyle,
+          id = _props2.id,
+          inputStyle = _props2.inputStyle,
+          multiLine = _props2.multiLine,
+          onBlur = _props2.onBlur,
+          onChange = _props2.onChange,
+          onFocus = _props2.onFocus,
+          style = _props2.style,
+          type = _props2.type,
+          underlineDisabledStyle = _props2.underlineDisabledStyle,
+          underlineFocusStyle = _props2.underlineFocusStyle,
+          underlineShow = _props2.underlineShow,
+          underlineStyle = _props2.underlineStyle,
+          rows = _props2.rows,
+          rowsMax = _props2.rowsMax,
+          textareaStyle = _props2.textareaStyle,
+          other = (0, _objectWithoutProperties3.default)(_props2, ['children', 'className', 'disabled', 'errorStyle', 'errorText', 'floatingLabelFixed', 'floatingLabelFocusStyle', 'floatingLabelShrinkStyle', 'floatingLabelStyle', 'floatingLabelText', 'fullWidth', 'hintText', 'hintStyle', 'id', 'inputStyle', 'multiLine', 'onBlur', 'onChange', 'onFocus', 'style', 'type', 'underlineDisabledStyle', 'underlineFocusStyle', 'underlineShow', 'underlineStyle', 'rows', 'rowsMax', 'textareaStyle']);
+      var prepareStyles = this.context.muiTheme.prepareStyles;
+
+      var styles = getStyles(this.props, this.context, this.state);
+      var inputId = id || this.uniqueId;
+
+      var errorTextElement = this.state.errorText && _react2.default.createElement(
+        'div',
+        { style: prepareStyles((0, _simpleAssign2.default)(styles.error, errorStyle)) },
+        this.state.errorText
+      );
+
+      var floatingLabelTextElement = floatingLabelText && _react2.default.createElement(
+        _TextFieldLabel2.default,
+        {
+          muiTheme: this.context.muiTheme,
+          style: (0, _simpleAssign2.default)(styles.floatingLabel, floatingLabelStyle, this.state.isFocused ? floatingLabelFocusStyle : null),
+          shrinkStyle: floatingLabelShrinkStyle,
+          htmlFor: inputId,
+          shrink: this.state.hasValue || this.state.isFocused || floatingLabelFixed,
+          disabled: disabled
+        },
+        floatingLabelText
+      );
+
+      var inputProps = {
+        id: inputId,
+        ref: function ref(elem) {
+          return _this2.input = elem;
+        },
+        disabled: this.props.disabled,
+        onBlur: this.handleInputBlur,
+        onChange: this.handleInputChange,
+        onFocus: this.handleInputFocus
+      };
+
+      var childStyleMerged = (0, _simpleAssign2.default)(styles.input, inputStyle);
+
+      var inputElement = void 0;
+      if (children) {
+        inputElement = _react2.default.cloneElement(children, (0, _extends3.default)({}, inputProps, children.props, {
+          style: (0, _simpleAssign2.default)(childStyleMerged, children.props.style)
+        }));
+      } else {
+        inputElement = multiLine ? _react2.default.createElement(_EnhancedTextarea2.default, (0, _extends3.default)({
+          style: childStyleMerged,
+          textareaStyle: (0, _simpleAssign2.default)(styles.textarea, styles.inputNative, textareaStyle),
+          rows: rows,
+          rowsMax: rowsMax,
+          hintText: hintText
+        }, other, inputProps, {
+          onHeightChange: this.handleHeightChange
+        })) : _react2.default.createElement('input', (0, _extends3.default)({
+          type: type,
+          style: prepareStyles((0, _simpleAssign2.default)(styles.inputNative, childStyleMerged))
+        }, other, inputProps));
+      }
+
+      var rootProps = {};
+
+      if (children) {
+        rootProps = other;
+      }
+
+      return _react2.default.createElement(
+        'div',
+        (0, _extends3.default)({}, rootProps, {
+          className: className,
+          style: prepareStyles((0, _simpleAssign2.default)(styles.root, style))
+        }),
+        floatingLabelTextElement,
+        hintText ? _react2.default.createElement(_TextFieldHint2.default, {
+          muiTheme: this.context.muiTheme,
+          show: !(this.state.hasValue || floatingLabelText && !this.state.isFocused) || !this.state.hasValue && floatingLabelText && floatingLabelFixed && !this.state.isFocused,
+          style: hintStyle,
+          text: hintText
+        }) : null,
+        inputElement,
+        underlineShow ? _react2.default.createElement(_TextFieldUnderline2.default, {
+          disabled: disabled,
+          disabledStyle: underlineDisabledStyle,
+          error: !!this.state.errorText,
+          errorStyle: errorStyle,
+          focus: this.state.isFocused,
+          focusStyle: underlineFocusStyle,
+          muiTheme: this.context.muiTheme,
+          style: underlineStyle
+        }) : null,
+        errorTextElement
+      );
+    }
+  }]);
+  return TextField;
+}(_react.Component);
+
+TextField.defaultProps = {
+  disabled: false,
+  floatingLabelFixed: false,
+  multiLine: false,
+  fullWidth: false,
+  type: 'text',
+  underlineShow: true,
+  rows: 1
+};
+TextField.contextTypes = {
+  muiTheme: _propTypes2.default.object.isRequired
+};
+TextField.propTypes =  true ? {
+  children: _propTypes2.default.node,
+  /**
+   * The css class name of the root element.
+   */
+  className: _propTypes2.default.string,
+  /**
+   * The text string to use for the default value.
+   */
+  defaultValue: _propTypes2.default.any,
+  /**
+   * Disables the text field if set to true.
+   */
+  disabled: _propTypes2.default.bool,
+  /**
+   * The style object to use to override error styles.
+   */
+  errorStyle: _propTypes2.default.object,
+  /**
+   * The error content to display.
+   */
+  errorText: _propTypes2.default.node,
+  /**
+   * If true, the floating label will float even when there is no value.
+   */
+  floatingLabelFixed: _propTypes2.default.bool,
+  /**
+   * The style object to use to override floating label styles when focused.
+   */
+  floatingLabelFocusStyle: _propTypes2.default.object,
+  /**
+   * The style object to use to override floating label styles when shrunk.
+   */
+  floatingLabelShrinkStyle: _propTypes2.default.object,
+  /**
+   * The style object to use to override floating label styles.
+   */
+  floatingLabelStyle: _propTypes2.default.object,
+  /**
+   * The content to use for the floating label element.
+   */
+  floatingLabelText: _propTypes2.default.node,
+  /**
+   * If true, the field receives the property width 100%.
+   */
+  fullWidth: _propTypes2.default.bool,
+  /**
+   * Override the inline-styles of the TextField's hint text element.
+   */
+  hintStyle: _propTypes2.default.object,
+  /**
+   * The hint content to display.
+   */
+  hintText: _propTypes2.default.node,
+  /**
+   * The id prop for the text field.
+   */
+  id: _propTypes2.default.string,
+  /**
+   * Override the inline-styles of the TextField's input element.
+   * When multiLine is false: define the style of the input element.
+   * When multiLine is true: define the style of the container of the textarea.
+   */
+  inputStyle: _propTypes2.default.object,
+  /**
+   * If true, a textarea element will be rendered.
+   * The textarea also grows and shrinks according to the number of lines.
+   */
+  multiLine: _propTypes2.default.bool,
+  /**
+   * Name applied to the input.
+   */
+  name: _propTypes2.default.string,
+  /** @ignore */
+  onBlur: _propTypes2.default.func,
+  /**
+   * Callback function that is fired when the textfield's value changes.
+   *
+   * @param {object} event Change event targeting the text field.
+   * @param {string} newValue The new value of the text field.
+   */
+  onChange: _propTypes2.default.func,
+  /** @ignore */
+  onFocus: _propTypes2.default.func,
+  /**
+   * Number of rows to display when multiLine option is set to true.
+   */
+  rows: _propTypes2.default.number,
+  /**
+   * Maximum number of rows to display when
+   * multiLine option is set to true.
+   */
+  rowsMax: _propTypes2.default.number,
+  /**
+   * Override the inline-styles of the root element.
+   */
+  style: _propTypes2.default.object,
+  /**
+   * Override the inline-styles of the TextField's textarea element.
+   * The TextField use either a textarea or an input,
+   * this property has effects only when multiLine is true.
+   */
+  textareaStyle: _propTypes2.default.object,
+  /**
+   * Specifies the type of input to display
+   * such as "password" or "text".
+   */
+  type: _propTypes2.default.string,
+  /**
+   * Override the inline-styles of the
+   * TextField's underline element when disabled.
+   */
+  underlineDisabledStyle: _propTypes2.default.object,
+  /**
+   * Override the inline-styles of the TextField's
+   * underline element when focussed.
+   */
+  underlineFocusStyle: _propTypes2.default.object,
+  /**
+   * If true, shows the underline for the text field.
+   */
+  underlineShow: _propTypes2.default.bool,
+  /**
+   * Override the inline-styles of the TextField's underline element.
+   */
+  underlineStyle: _propTypes2.default.object,
+  /**
+   * The value of the text field.
+   */
+  value: _propTypes2.default.any
+} : undefined;
+exports.default = TextField;
+
+/***/ }),
+
+/***/ "./node_modules/material-ui/TextField/TextFieldHint.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/material-ui/TextField/TextFieldHint.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _simpleAssign = __webpack_require__(/*! simple-assign */ "./node_modules/simple-assign/index.js");
+
+var _simpleAssign2 = _interopRequireDefault(_simpleAssign);
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _transitions = __webpack_require__(/*! ../styles/transitions */ "./node_modules/material-ui/styles/transitions.js");
+
+var _transitions2 = _interopRequireDefault(_transitions);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function getStyles(props) {
+  var hintColor = props.muiTheme.textField.hintColor,
+      show = props.show;
+
+
+  return {
+    root: {
+      position: 'absolute',
+      opacity: show ? 1 : 0,
+      color: hintColor,
+      transition: _transitions2.default.easeOut(),
+      bottom: 12
+    }
+  };
+}
+
+var TextFieldHint = function TextFieldHint(props) {
+  var prepareStyles = props.muiTheme.prepareStyles,
+      style = props.style,
+      text = props.text;
+
+
+  var styles = getStyles(props);
+
+  return _react2.default.createElement(
+    'div',
+    { style: prepareStyles((0, _simpleAssign2.default)(styles.root, style)) },
+    text
+  );
+};
+
+TextFieldHint.propTypes =  true ? {
+  /**
+   * @ignore
+   * The material-ui theme applied to this component.
+   */
+  muiTheme: _propTypes2.default.object.isRequired,
+  /**
+   * True if the hint text should be visible.
+   */
+  show: _propTypes2.default.bool,
+  /**
+   * Override the inline-styles of the root element.
+   */
+  style: _propTypes2.default.object,
+  /**
+   * The hint text displayed.
+   */
+  text: _propTypes2.default.node
+} : undefined;
+
+TextFieldHint.defaultProps = {
+  show: true
+};
+
+exports.default = TextFieldHint;
+
+/***/ }),
+
+/***/ "./node_modules/material-ui/TextField/TextFieldLabel.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/material-ui/TextField/TextFieldLabel.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _simpleAssign = __webpack_require__(/*! simple-assign */ "./node_modules/simple-assign/index.js");
+
+var _simpleAssign2 = _interopRequireDefault(_simpleAssign);
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _transitions = __webpack_require__(/*! ../styles/transitions */ "./node_modules/material-ui/styles/transitions.js");
+
+var _transitions2 = _interopRequireDefault(_transitions);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function getStyles(props) {
+  var defaultStyles = {
+    position: 'absolute',
+    lineHeight: '22px',
+    top: 38,
+    transition: _transitions2.default.easeOut(),
+    zIndex: 1, // Needed to display label above Chrome's autocomplete field background
+    transform: 'scale(1) translate(0, 0)',
+    transformOrigin: 'left top',
+    pointerEvents: 'auto',
+    userSelect: 'none'
+  };
+
+  var shrinkStyles = props.shrink ? (0, _simpleAssign2.default)({
+    transform: 'scale(0.75) translate(0, -28px)',
+    pointerEvents: 'none'
+  }, props.shrinkStyle) : null;
+
+  return {
+    root: (0, _simpleAssign2.default)(defaultStyles, props.style, shrinkStyles)
+  };
+}
+
+var TextFieldLabel = function TextFieldLabel(props) {
+  var muiTheme = props.muiTheme,
+      className = props.className,
+      children = props.children,
+      htmlFor = props.htmlFor,
+      onClick = props.onClick;
+  var prepareStyles = muiTheme.prepareStyles;
+
+  var styles = getStyles(props);
+
+  return _react2.default.createElement(
+    'label',
+    {
+      className: className,
+      style: prepareStyles(styles.root),
+      htmlFor: htmlFor,
+      onClick: onClick
+    },
+    children
+  );
+};
+
+TextFieldLabel.propTypes =  true ? {
+  /**
+   * The label contents.
+   */
+  children: _propTypes2.default.node,
+  /**
+   * The css class name of the root element.
+   */
+  className: _propTypes2.default.string,
+  /**
+   * Disables the label if set to true.
+   */
+  disabled: _propTypes2.default.bool,
+  /**
+   * The id of the target element that this label should refer to.
+   */
+  htmlFor: _propTypes2.default.string,
+  /**
+   * @ignore
+   * The material-ui theme applied to this component.
+   */
+  muiTheme: _propTypes2.default.object.isRequired,
+  /**
+   * Callback function for when the label is selected via a click.
+   *
+   * @param {object} event Click event targeting the text field label.
+   */
+  onClick: _propTypes2.default.func,
+  /**
+   * True if the floating label should shrink.
+   */
+  shrink: _propTypes2.default.bool,
+  /**
+   * Override the inline-styles of the root element when shrunk.
+   */
+  shrinkStyle: _propTypes2.default.object,
+  /**
+   * Override the inline-styles of the root element.
+   */
+  style: _propTypes2.default.object
+} : undefined;
+
+TextFieldLabel.defaultProps = {
+  disabled: false,
+  shrink: false
+};
+
+exports.default = TextFieldLabel;
+
+/***/ }),
+
+/***/ "./node_modules/material-ui/TextField/TextFieldUnderline.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/material-ui/TextField/TextFieldUnderline.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _simpleAssign = __webpack_require__(/*! simple-assign */ "./node_modules/simple-assign/index.js");
+
+var _simpleAssign2 = _interopRequireDefault(_simpleAssign);
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _transitions = __webpack_require__(/*! ../styles/transitions */ "./node_modules/material-ui/styles/transitions.js");
+
+var _transitions2 = _interopRequireDefault(_transitions);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var propTypes = {
+  /**
+   * True if the parent `TextField` is disabled.
+   */
+  disabled: _propTypes2.default.bool,
+  /**
+   * Override the inline-styles of the underline when parent `TextField` is disabled.
+   */
+  disabledStyle: _propTypes2.default.object,
+  /**
+   * True if the parent `TextField` has an error.
+   */
+  error: _propTypes2.default.bool,
+  /**
+   * Override the inline-styles of the underline when parent `TextField` has an error.
+   */
+  errorStyle: _propTypes2.default.object,
+  /**
+   * True if the parent `TextField` is focused.
+   */
+  focus: _propTypes2.default.bool,
+  /**
+   * Override the inline-styles of the underline when parent `TextField` is focused.
+   */
+  focusStyle: _propTypes2.default.object,
+  /**
+   * @ignore
+   * The material-ui theme applied to this component.
+   */
+  muiTheme: _propTypes2.default.object.isRequired,
+  /**
+   * Override the inline-styles of the root element.
+   */
+  style: _propTypes2.default.object
+};
+
+var defaultProps = {
+  disabled: false,
+  disabledStyle: {},
+  error: false,
+  errorStyle: {},
+  focus: false,
+  focusStyle: {},
+  style: {}
+};
+
+var TextFieldUnderline = function TextFieldUnderline(props) {
+  var disabled = props.disabled,
+      disabledStyle = props.disabledStyle,
+      error = props.error,
+      errorStyle = props.errorStyle,
+      focus = props.focus,
+      focusStyle = props.focusStyle,
+      muiTheme = props.muiTheme,
+      style = props.style;
+  var errorStyleColor = errorStyle.color;
+  var prepareStyles = muiTheme.prepareStyles,
+      _muiTheme$textField = muiTheme.textField,
+      borderColor = _muiTheme$textField.borderColor,
+      disabledTextColor = _muiTheme$textField.disabledTextColor,
+      errorColor = _muiTheme$textField.errorColor,
+      focusColor = _muiTheme$textField.focusColor;
+
+
+  var styles = {
+    root: {
+      borderTop: 'none',
+      borderLeft: 'none',
+      borderRight: 'none',
+      borderBottomStyle: 'solid',
+      borderBottomWidth: 1,
+      borderColor: borderColor,
+      bottom: 8,
+      boxSizing: 'content-box',
+      margin: 0,
+      position: 'absolute',
+      width: '100%'
+    },
+    disabled: {
+      borderBottomStyle: 'dotted',
+      borderBottomWidth: 2,
+      borderColor: disabledTextColor
+    },
+    focus: {
+      borderBottomStyle: 'solid',
+      borderBottomWidth: 2,
+      borderColor: focusColor,
+      transform: 'scaleX(0)',
+      transition: _transitions2.default.easeOut()
+    },
+    error: {
+      borderColor: errorStyleColor ? errorStyleColor : errorColor,
+      transform: 'scaleX(1)'
+    }
+  };
+
+  var underline = (0, _simpleAssign2.default)({}, styles.root, style);
+  var focusedUnderline = (0, _simpleAssign2.default)({}, underline, styles.focus, focusStyle);
+
+  if (disabled) underline = (0, _simpleAssign2.default)({}, underline, styles.disabled, disabledStyle);
+  if (focus) focusedUnderline = (0, _simpleAssign2.default)({}, focusedUnderline, { transform: 'scaleX(1)' });
+  if (error) focusedUnderline = (0, _simpleAssign2.default)({}, focusedUnderline, styles.error);
+
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement('hr', { 'aria-hidden': 'true', style: prepareStyles(underline) }),
+    _react2.default.createElement('hr', { 'aria-hidden': 'true', style: prepareStyles(focusedUnderline) })
+  );
+};
+
+TextFieldUnderline.propTypes =  true ? propTypes : undefined;
+TextFieldUnderline.defaultProps = defaultProps;
+
+exports.default = TextFieldUnderline;
+
+/***/ }),
+
+/***/ "./node_modules/material-ui/TextField/index.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/material-ui/TextField/index.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = undefined;
+
+var _TextField = __webpack_require__(/*! ./TextField */ "./node_modules/material-ui/TextField/TextField.js");
+
+var _TextField2 = _interopRequireDefault(_TextField);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _TextField2.default;
 
 /***/ }),
 
@@ -62947,49 +64110,6 @@ exports.default = {
 
 /***/ }),
 
-/***/ "./node_modules/material-ui/svg-icons/content/add.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/material-ui/svg-icons/content/add.js ***!
-  \***********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-var _react2 = _interopRequireDefault(_react);
-
-var _pure = __webpack_require__(/*! recompose/pure */ "./node_modules/recompose/pure.js");
-
-var _pure2 = _interopRequireDefault(_pure);
-
-var _SvgIcon = __webpack_require__(/*! ../../SvgIcon */ "./node_modules/material-ui/SvgIcon/index.js");
-
-var _SvgIcon2 = _interopRequireDefault(_SvgIcon);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var ContentAdd = function ContentAdd(props) {
-  return _react2.default.createElement(
-    _SvgIcon2.default,
-    props,
-    _react2.default.createElement('path', { d: 'M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z' })
-  );
-};
-ContentAdd = (0, _pure2.default)(ContentAdd);
-ContentAdd.displayName = 'ContentAdd';
-ContentAdd.muiName = 'SvgIcon';
-
-exports.default = ContentAdd;
-
-/***/ }),
-
 /***/ "./node_modules/material-ui/svg-icons/toggle/check-box-outline-blank.js":
 /*!******************************************************************************!*\
   !*** ./node_modules/material-ui/svg-icons/toggle/check-box-outline-blank.js ***!
@@ -63322,43 +64442,6 @@ function callOnce() {
       return style;
     };
   }
-}
-
-/***/ }),
-
-/***/ "./node_modules/material-ui/utils/childUtils.js":
-/*!******************************************************!*\
-  !*** ./node_modules/material-ui/utils/childUtils.js ***!
-  \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.extendChildren = extendChildren;
-
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function extendChildren(children, extendedProps, extendedChildren) {
-  return _react2.default.Children.map(children, function (child) {
-    if (!_react2.default.isValidElement(child)) {
-      return child;
-    }
-
-    var newProps = typeof extendedProps === 'function' ? extendedProps(child) : extendedProps;
-
-    var newChildren = typeof extendedChildren === 'function' ? extendedChildren(child) : extendedChildren ? extendedChildren : child.props.children;
-
-    return _react2.default.cloneElement(child, newProps, newChildren);
-  });
 }
 
 /***/ }),
@@ -113547,7 +114630,7 @@ module.exports = function(module) {
 /*!***************************************!*\
   !*** ./resources/js/actions/index.js ***!
   \***************************************/
-/*! exports provided: READ_BOARDS, BOARD_FETCH_SUCCEEDED, BOARD_FETCH_FAILED, readBoards, boardFetchSucceeded, boardFetchFailed */
+/*! exports provided: READ_BOARDS, BOARD_FETCH_SUCCEEDED, BOARD_FETCH_FAILED, READ_THREAD, THREAD_FETCH_SUCCEEDED, THREAD_FETCH_FAILED, CREATE_THREAD, THREAD_CREATE_SUCCEEDED, THREAD_CREATE_FAILED, CREATE_MESSAGE, MESSAGE_CREATE_SUCCEEDED, MESSAGE_CREATE_FAILED, READ_USER, USER_FETCH_SUCCEEDED, USER_FETCH_FAILED, DELETE_USER, USER_DELETE_SUCCEEDED, USER_DELETE_FAILED, UPDATE_USER, USER_UPDATE_SUCCEEDED, USER_UPDATE_FAILED, readBoards, boardFetchSucceeded, boardFetchFailed, getThread, threadFetchSucceeded, threadFetchFailed, createThread, threadCreateSucceeded, threadCreateFailed, createMessage, messageCreateSucceeded, messageCreateFailed, getUser, userFetchSucceeded, userFetchFailed, deleteUser, userDeleteSucceeded, userDeleteFailed, putUser, userUpdateSucceeded, userUpdateFailed */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -113555,12 +114638,66 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "READ_BOARDS", function() { return READ_BOARDS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BOARD_FETCH_SUCCEEDED", function() { return BOARD_FETCH_SUCCEEDED; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BOARD_FETCH_FAILED", function() { return BOARD_FETCH_FAILED; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "READ_THREAD", function() { return READ_THREAD; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "THREAD_FETCH_SUCCEEDED", function() { return THREAD_FETCH_SUCCEEDED; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "THREAD_FETCH_FAILED", function() { return THREAD_FETCH_FAILED; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CREATE_THREAD", function() { return CREATE_THREAD; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "THREAD_CREATE_SUCCEEDED", function() { return THREAD_CREATE_SUCCEEDED; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "THREAD_CREATE_FAILED", function() { return THREAD_CREATE_FAILED; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CREATE_MESSAGE", function() { return CREATE_MESSAGE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MESSAGE_CREATE_SUCCEEDED", function() { return MESSAGE_CREATE_SUCCEEDED; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MESSAGE_CREATE_FAILED", function() { return MESSAGE_CREATE_FAILED; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "READ_USER", function() { return READ_USER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "USER_FETCH_SUCCEEDED", function() { return USER_FETCH_SUCCEEDED; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "USER_FETCH_FAILED", function() { return USER_FETCH_FAILED; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DELETE_USER", function() { return DELETE_USER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "USER_DELETE_SUCCEEDED", function() { return USER_DELETE_SUCCEEDED; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "USER_DELETE_FAILED", function() { return USER_DELETE_FAILED; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UPDATE_USER", function() { return UPDATE_USER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "USER_UPDATE_SUCCEEDED", function() { return USER_UPDATE_SUCCEEDED; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "USER_UPDATE_FAILED", function() { return USER_UPDATE_FAILED; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "readBoards", function() { return readBoards; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "boardFetchSucceeded", function() { return boardFetchSucceeded; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "boardFetchFailed", function() { return boardFetchFailed; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getThread", function() { return getThread; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "threadFetchSucceeded", function() { return threadFetchSucceeded; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "threadFetchFailed", function() { return threadFetchFailed; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createThread", function() { return createThread; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "threadCreateSucceeded", function() { return threadCreateSucceeded; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "threadCreateFailed", function() { return threadCreateFailed; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createMessage", function() { return createMessage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "messageCreateSucceeded", function() { return messageCreateSucceeded; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "messageCreateFailed", function() { return messageCreateFailed; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getUser", function() { return getUser; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "userFetchSucceeded", function() { return userFetchSucceeded; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "userFetchFailed", function() { return userFetchFailed; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteUser", function() { return deleteUser; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "userDeleteSucceeded", function() { return userDeleteSucceeded; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "userDeleteFailed", function() { return userDeleteFailed; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "putUser", function() { return putUser; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "userUpdateSucceeded", function() { return userUpdateSucceeded; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "userUpdateFailed", function() { return userUpdateFailed; });
 var READ_BOARDS = 'READ_BOARDS';
 var BOARD_FETCH_SUCCEEDED = 'BOARD_FETCH_SUCCEEDED';
 var BOARD_FETCH_FAILED = 'BOARD_FETCH_FAILED';
+var READ_THREAD = 'READ_THREAD';
+var THREAD_FETCH_SUCCEEDED = 'THREAD_FETCH_SUCCEEDED';
+var THREAD_FETCH_FAILED = 'THREAD_FETCH_FAILED';
+var CREATE_THREAD = 'CREATE_THREAD';
+var THREAD_CREATE_SUCCEEDED = 'THREAD_CREATE_SUCCEEDED';
+var THREAD_CREATE_FAILED = 'THREAD_CREATE_FAILED';
+var CREATE_MESSAGE = 'CREATE_MESSAGE';
+var MESSAGE_CREATE_SUCCEEDED = 'MESSAGE_CREATE_SUCCEEDED';
+var MESSAGE_CREATE_FAILED = 'MESSAGE_CREATE_FAILED';
+var READ_USER = 'READ_USER';
+var USER_FETCH_SUCCEEDED = 'USER_FETCH_SUCCEEDED';
+var USER_FETCH_FAILED = 'USER_FETCH_FAILED';
+var DELETE_USER = 'DELETE_USER';
+var USER_DELETE_SUCCEEDED = 'USER_DELETE_SUCCEEDED';
+var USER_DELETE_FAILED = 'USER_DELETE_FAILED';
+var UPDATE_USER = 'UPDATE_USER';
+var USER_UPDATE_SUCCEEDED = 'USER_UPDATE_SUCCEEDED';
+var USER_UPDATE_FAILED = 'USER_UPDATE_FAILED';
 var readBoards = function readBoards() {
   return {
     type: READ_BOARDS
@@ -113576,6 +114713,124 @@ var boardFetchSucceeded = function boardFetchSucceeded(payload, meta) {
 var boardFetchFailed = function boardFetchFailed(payload) {
   return {
     type: BOARD_FETCH_FAILED,
+    error: true,
+    payload: payload
+  };
+};
+var getThread = function getThread(id) {
+  return {
+    type: READ_THREAD,
+    id: id
+  };
+};
+var threadFetchSucceeded = function threadFetchSucceeded(payload, meta) {
+  return {
+    type: THREAD_FETCH_SUCCEEDED,
+    payload: payload,
+    meta: meta
+  };
+};
+var threadFetchFailed = function threadFetchFailed(payload) {
+  return {
+    type: THREAD_FETCH_FAILED,
+    error: true,
+    payload: payload
+  };
+};
+var createThread = function createThread(values) {
+  return {
+    type: CREATE_THREAD,
+    values: values
+  };
+};
+var threadCreateSucceeded = function threadCreateSucceeded(payload, meta) {
+  return {
+    type: THREAD_CREATE_SUCCEEDED,
+    payload: payload,
+    meta: meta
+  };
+};
+var threadCreateFailed = function threadCreateFailed(payload) {
+  return {
+    type: THREAD_CREATE_FAILED,
+    error: true,
+    payload: payload
+  };
+};
+var createMessage = function createMessage(values) {
+  return {
+    type: CREATE_MESSAGE,
+    values: values
+  };
+};
+var messageCreateSucceeded = function messageCreateSucceeded(payload, meta) {
+  return {
+    type: MESSAGE_CREATE_SUCCEEDED,
+    payload: payload,
+    meta: meta
+  };
+};
+var messageCreateFailed = function messageCreateFailed(payload) {
+  return {
+    type: MESSAGE_CREATE_FAILED,
+    error: true,
+    payload: payload
+  };
+};
+var getUser = function getUser() {
+  return {
+    type: READ_USER
+  };
+};
+var userFetchSucceeded = function userFetchSucceeded(payload, meta) {
+  return {
+    type: USER_FETCH_SUCCEEDED,
+    payload: payload,
+    meta: meta
+  };
+};
+var userFetchFailed = function userFetchFailed(payload) {
+  return {
+    type: USER_FETCH_FAILED,
+    error: true,
+    payload: payload
+  };
+};
+var deleteUser = function deleteUser() {
+  return {
+    type: DELETE_USER
+  };
+};
+var userDeleteSucceeded = function userDeleteSucceeded(payload, meta) {
+  return {
+    type: USER_DELETE_SUCCEEDED,
+    payload: payload,
+    meta: meta
+  };
+};
+var userDeleteFailed = function userDeleteFailed(payload) {
+  return {
+    type: USER_DELETE_FAILED,
+    error: true,
+    payload: payload
+  };
+};
+var putUser = function putUser(values) {
+  return {
+    type: UPDATE_USER,
+    values: values
+  };
+};
+var userUpdateSucceeded = function userUpdateSucceeded(payload, meta) {
+  return {
+    type: USER_UPDATE_SUCCEEDED,
+    payload: payload,
+    meta: meta
+  };
+};
+var userUpdateFailed = function userUpdateFailed(payload) {
+  return {
+    type: USER_UPDATE_FAILED,
     error: true,
     payload: payload
   };
@@ -113669,11 +114924,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var material_ui_Table__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! material-ui/Table */ "./node_modules/material-ui/Table/index.js");
 /* harmony import */ var material_ui_Table__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(material_ui_Table__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var material_ui_FloatingActionButton__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! material-ui/FloatingActionButton */ "./node_modules/material-ui/FloatingActionButton/index.js");
-/* harmony import */ var material_ui_FloatingActionButton__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(material_ui_FloatingActionButton__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var material_ui_svg_icons_content_add__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! material-ui/svg-icons/content/add */ "./node_modules/material-ui/svg-icons/content/add.js");
-/* harmony import */ var material_ui_svg_icons_content_add__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(material_ui_svg_icons_content_add__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../actions */ "./resources/js/actions/index.js");
+/* harmony import */ var material_ui_RaisedButton__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! material-ui/RaisedButton */ "./node_modules/material-ui/RaisedButton/index.js");
+/* harmony import */ var material_ui_RaisedButton__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(material_ui_RaisedButton__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../actions */ "./resources/js/actions/index.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -113691,7 +114944,6 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
 
 
 
@@ -113720,9 +114972,25 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
+      var style = {
+        position: "fixed",
+        right: 12,
+        top: 60
+      };
       return lodash__WEBPACK_IMPORTED_MODULE_2___default.a.map(this.props.boards, function (board) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(material_ui_Table__WEBPACK_IMPORTED_MODULE_4__["Table"], {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, {
           key: board.id
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(material_ui_RaisedButton__WEBPACK_IMPORTED_MODULE_5___default.a, {
+          label: "\u30E6\u30FC\u30B6\u30FC\u60C5\u5831",
+          style: style,
+          containerElement: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+            to: "/users/show"
+          })
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(material_ui_Table__WEBPACK_IMPORTED_MODULE_4__["Table"], {
+          style: {
+            maxWidth: '900px',
+            margin: 'auto'
+          }
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(material_ui_Table__WEBPACK_IMPORTED_MODULE_4__["TableHeader"], {
           displaySelectAll: false,
           adjustForCheckbox: false,
@@ -113732,8 +115000,17 @@ function (_Component) {
         }, lodash__WEBPACK_IMPORTED_MODULE_2___default.a.map(board.threads, function (thread) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(material_ui_Table__WEBPACK_IMPORTED_MODULE_4__["TableRow"], {
             key: thread.id
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(material_ui_Table__WEBPACK_IMPORTED_MODULE_4__["TableRowColumn"], null, " ", thread.name, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(material_ui_Table__WEBPACK_IMPORTED_MODULE_4__["TableRowColumn"], null, " ", thread.updated_at, " "));
-        }), ";"));
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(material_ui_Table__WEBPACK_IMPORTED_MODULE_4__["TableRowColumn"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+            to: "/threads/".concat(thread.id)
+          }, thread.name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(material_ui_Table__WEBPACK_IMPORTED_MODULE_4__["TableRowColumn"], null, " ", thread.updated_at, " "));
+        }), ";", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(material_ui_Table__WEBPACK_IMPORTED_MODULE_4__["TableRow"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(material_ui_Table__WEBPACK_IMPORTED_MODULE_4__["TableRowColumn"], {
+          colSpan: 2
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(material_ui_RaisedButton__WEBPACK_IMPORTED_MODULE_5___default.a, {
+          label: "\u30B9\u30EC\u30C3\u30C9\u65B0\u898F\u4F5C\u6210",
+          containerElement: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+            to: "/threads/new/".concat(board.id)
+          })
+        }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null));
       });
     }
   }]);
@@ -113748,9 +115025,610 @@ var mapStateToProps = function mapStateToProps(state) {
 };
 
 var mapDispatchToProps = {
-  readBoards: _actions__WEBPACK_IMPORTED_MODULE_7__["readBoards"]
+  readBoards: _actions__WEBPACK_IMPORTED_MODULE_6__["readBoards"]
 };
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, mapDispatchToProps)(BoardsIndex));
+
+/***/ }),
+
+/***/ "./resources/js/components/threads_new.js":
+/*!************************************************!*\
+  !*** ./resources/js/components/threads_new.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var redux_form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! redux-form */ "./node_modules/redux-form/es/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var material_ui_RaisedButton__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! material-ui/RaisedButton */ "./node_modules/material-ui/RaisedButton/index.js");
+/* harmony import */ var material_ui_RaisedButton__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(material_ui_RaisedButton__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var material_ui_TextField__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! material-ui/TextField */ "./node_modules/material-ui/TextField/index.js");
+/* harmony import */ var material_ui_TextField__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(material_ui_TextField__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../actions */ "./resources/js/actions/index.js");
+
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+
+
+
+var ThreadsNew =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(ThreadsNew, _Component);
+
+  function ThreadsNew(props) {
+    var _this;
+
+    _classCallCheck(this, ThreadsNew);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(ThreadsNew).call(this, props));
+    _this.onSubmit = _this.onSubmit.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(ThreadsNew, [{
+    key: "renderField",
+    value: function renderField(field) {
+      var input = field.input,
+          label = field.label,
+          type = field.type,
+          _field$meta = field.meta,
+          touched = _field$meta.touched,
+          error = _field$meta.error;
+      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(material_ui_TextField__WEBPACK_IMPORTED_MODULE_6___default.a, _extends({
+        hintText: label,
+        floatingLabelText: label,
+        type: type,
+        errorText: touched && error
+      }, input, {
+        fullWidth: true
+      }));
+    }
+  }, {
+    key: "onSubmit",
+    value: function () {
+      var _onSubmit = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(values) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return this.props.createThread(values);
+
+              case 2:
+                this.props.history.push('/');
+
+              case 3:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function onSubmit(_x) {
+        return _onSubmit.apply(this, arguments);
+      }
+
+      return onSubmit;
+    }()
+  }, {
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          handleSubmit = _this$props.handleSubmit,
+          pristine = _this$props.pristine,
+          submitting = _this$props.submitting,
+          invalid = _this$props.invalid;
+      var id = this.props.match.params.id;
+      this.props.dispatch(Object(redux_form__WEBPACK_IMPORTED_MODULE_3__["change"])("threadsNewForm", "board_id", id));
+      var style = {
+        margin: 12
+      };
+      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", {
+        onSubmit: handleSubmit(this.onSubmit)
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(redux_form__WEBPACK_IMPORTED_MODULE_3__["Field"], {
+        label: "\u30B9\u30EC\u30C3\u30C9\u30BF\u30A4\u30C8\u30EB",
+        name: "name",
+        type: "text",
+        component: this.renderField
+      })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(material_ui_RaisedButton__WEBPACK_IMPORTED_MODULE_5___default.a, {
+        label: "\u65B0\u898F\u4F5C\u6210",
+        type: "submit",
+        style: style,
+        disabled: pristine || submitting || invalid
+      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(material_ui_RaisedButton__WEBPACK_IMPORTED_MODULE_5___default.a, {
+        label: "\u623B\u308B",
+        style: style,
+        containerElement: react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
+          to: "/"
+        })
+      }));
+    }
+  }]);
+
+  return ThreadsNew;
+}(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
+
+var validate = function validate(values) {
+  var errors = {};
+  if (!values.name) errors.name = "スレッドタイトルを入力してください。";
+  return errors;
+};
+
+var mapDispatchToProps = {
+  createThread: _actions__WEBPACK_IMPORTED_MODULE_7__["createThread"]
+};
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(null, mapDispatchToProps)(Object(redux_form__WEBPACK_IMPORTED_MODULE_3__["reduxForm"])({
+  validate: validate,
+  form: 'threadsNewForm'
+})(ThreadsNew)));
+
+/***/ }),
+
+/***/ "./resources/js/components/threads_show.js":
+/*!*************************************************!*\
+  !*** ./resources/js/components/threads_show.js ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var material_ui_Table__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! material-ui/Table */ "./node_modules/material-ui/Table/index.js");
+/* harmony import */ var material_ui_Table__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(material_ui_Table__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var redux_form__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! redux-form */ "./node_modules/redux-form/es/index.js");
+/* harmony import */ var material_ui_RaisedButton__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! material-ui/RaisedButton */ "./node_modules/material-ui/RaisedButton/index.js");
+/* harmony import */ var material_ui_RaisedButton__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(material_ui_RaisedButton__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var material_ui_TextField__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! material-ui/TextField */ "./node_modules/material-ui/TextField/index.js");
+/* harmony import */ var material_ui_TextField__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(material_ui_TextField__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../actions */ "./resources/js/actions/index.js");
+
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+
+
+
+
+var ThreadsShow =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(ThreadsShow, _Component);
+
+  function ThreadsShow(props) {
+    var _this;
+
+    _classCallCheck(this, ThreadsShow);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(ThreadsShow).call(this, props));
+    _this.onSubmit = _this.onSubmit.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(ThreadsShow, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var id = this.props.match.params.id;
+      this.props.dispatch(Object(redux_form__WEBPACK_IMPORTED_MODULE_5__["change"])("threadsShowForm", "thread_id", id));
+      if (id) this.props.getThread(id);
+    }
+  }, {
+    key: "renderField",
+    value: function renderField(field) {
+      var input = field.input,
+          label = field.label,
+          type = field.type,
+          _field$meta = field.meta,
+          touched = _field$meta.touched,
+          error = _field$meta.error;
+      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(material_ui_TextField__WEBPACK_IMPORTED_MODULE_7___default.a, _extends({
+        hintText: label,
+        floatingLabelText: label,
+        type: type,
+        errorText: touched && error
+      }, input, {
+        fullWidth: true
+      }));
+    }
+  }, {
+    key: "onSubmit",
+    value: function () {
+      var _onSubmit = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(values) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return this.props.createMessage(values);
+
+              case 2:
+                location.reload();
+
+              case 3:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function onSubmit(_x) {
+        return _onSubmit.apply(this, arguments);
+      }
+
+      return onSubmit;
+    }()
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      var _this$props = this.props,
+          handleSubmit = _this$props.handleSubmit,
+          pristine = _this$props.pristine,
+          submitting = _this$props.submitting,
+          invalid = _this$props.invalid;
+      return lodash__WEBPACK_IMPORTED_MODULE_3___default.a.map(this.props.threads, function (thread) {
+        return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, {
+          key: thread.id
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(material_ui_Table__WEBPACK_IMPORTED_MODULE_4__["Table"], {
+          style: {
+            maxWidth: '900px',
+            margin: 'auto'
+          }
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(material_ui_Table__WEBPACK_IMPORTED_MODULE_4__["TableHeader"], {
+          displaySelectAll: false,
+          adjustForCheckbox: false
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(material_ui_Table__WEBPACK_IMPORTED_MODULE_4__["TableRow"], null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(material_ui_Table__WEBPACK_IMPORTED_MODULE_4__["TableHeaderColumn"], null, thread.name))), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(material_ui_Table__WEBPACK_IMPORTED_MODULE_4__["TableBody"], {
+          displayRowCheckbox: false
+        }, lodash__WEBPACK_IMPORTED_MODULE_3___default.a.map(thread.messages, function (message, index) {
+          return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, {
+            key: message.id
+          }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(material_ui_Table__WEBPACK_IMPORTED_MODULE_4__["TableRow"], null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(material_ui_Table__WEBPACK_IMPORTED_MODULE_4__["TableRowColumn"], {
+            style: {
+              padding: "10px"
+            }
+          }, index + 1, " \uFF1A ", message.user.name, " \uFF1A ", message.updated_at, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), message.content, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null))));
+        }), ";", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(material_ui_Table__WEBPACK_IMPORTED_MODULE_4__["TableRow"], null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(material_ui_Table__WEBPACK_IMPORTED_MODULE_4__["TableRowColumn"], {
+          style: {
+            padding: "10px"
+          }
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", {
+          onSubmit: handleSubmit(_this2.onSubmit)
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(redux_form__WEBPACK_IMPORTED_MODULE_5__["Field"], {
+          label: "\u30E1\u30C3\u30BB\u30FC\u30B8\u5185\u5BB9",
+          name: "content",
+          type: "text",
+          component: _this2.renderField
+        })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(material_ui_RaisedButton__WEBPACK_IMPORTED_MODULE_6___default.a, {
+          label: "\u65B0\u898F\u4F5C\u6210",
+          type: "submit",
+          disabled: pristine || submitting || invalid
+        })))))));
+      });
+    }
+  }]);
+
+  return ThreadsShow;
+}(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    threads: state.threads_show
+  };
+};
+
+var mapDispatchToProps = {
+  getThread: _actions__WEBPACK_IMPORTED_MODULE_8__["getThread"],
+  createMessage: _actions__WEBPACK_IMPORTED_MODULE_8__["createMessage"]
+};
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchToProps)(Object(redux_form__WEBPACK_IMPORTED_MODULE_5__["reduxForm"])({
+  form: 'threadsShowForm'
+})(ThreadsShow)));
+;
+
+/***/ }),
+
+/***/ "./resources/js/components/users_show.js":
+/*!***********************************************!*\
+  !*** ./resources/js/components/users_show.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var redux_form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! redux-form */ "./node_modules/redux-form/es/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var material_ui_RaisedButton__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! material-ui/RaisedButton */ "./node_modules/material-ui/RaisedButton/index.js");
+/* harmony import */ var material_ui_RaisedButton__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(material_ui_RaisedButton__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var material_ui_TextField__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! material-ui/TextField */ "./node_modules/material-ui/TextField/index.js");
+/* harmony import */ var material_ui_TextField__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(material_ui_TextField__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../actions */ "./resources/js/actions/index.js");
+
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+
+
+
+var UsersShow =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(UsersShow, _Component);
+
+  function UsersShow(props) {
+    var _this;
+
+    _classCallCheck(this, UsersShow);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(UsersShow).call(this, props));
+    _this.onSubmit = _this.onSubmit.bind(_assertThisInitialized(_this));
+    _this.onDeleteClick = _this.onDeleteClick.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(UsersShow, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.getUser();
+    }
+  }, {
+    key: "renderField",
+    value: function renderField(field) {
+      var input = field.input,
+          label = field.label,
+          type = field.type,
+          _field$meta = field.meta,
+          touched = _field$meta.touched,
+          error = _field$meta.error;
+      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(material_ui_TextField__WEBPACK_IMPORTED_MODULE_6___default.a, _extends({
+        hintText: label,
+        floatingLabelText: label,
+        type: type,
+        errorText: touched && error
+      }, input, {
+        fullWidth: true
+      }));
+    }
+  }, {
+    key: "onDeleteClick",
+    value: function () {
+      var _onDeleteClick = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return this.props.deleteUser();
+
+              case 2:
+                this.props.history.push('/');
+
+              case 3:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function onDeleteClick() {
+        return _onDeleteClick.apply(this, arguments);
+      }
+
+      return onDeleteClick;
+    }()
+  }, {
+    key: "onSubmit",
+    value: function () {
+      var _onSubmit = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(values) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return this.props.putUser(values);
+
+              case 2:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      function onSubmit(_x) {
+        return _onSubmit.apply(this, arguments);
+      }
+
+      return onSubmit;
+    }()
+  }, {
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          handleSubmit = _this$props.handleSubmit,
+          pristine = _this$props.pristine,
+          submitting = _this$props.submitting,
+          invalid = _this$props.invalid;
+      var style = {
+        margin: 12
+      };
+      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", {
+        onSubmit: handleSubmit(this.onSubmit)
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(redux_form__WEBPACK_IMPORTED_MODULE_3__["Field"], {
+        label: "Email",
+        name: "email",
+        type: "text",
+        component: this.renderField
+      })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(redux_form__WEBPACK_IMPORTED_MODULE_3__["Field"], {
+        label: "Name",
+        name: "name",
+        type: "text",
+        component: this.renderField
+      })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(material_ui_RaisedButton__WEBPACK_IMPORTED_MODULE_5___default.a, {
+        label: "\u7DE8\u96C6",
+        type: "submit",
+        style: style,
+        disabled: pristine || submitting || invalid
+      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(material_ui_RaisedButton__WEBPACK_IMPORTED_MODULE_5___default.a, {
+        label: "\u623B\u308B",
+        style: style,
+        containerElement: react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
+          to: "/"
+        })
+      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(material_ui_RaisedButton__WEBPACK_IMPORTED_MODULE_5___default.a, {
+        label: "\u9000\u4F1A",
+        style: style,
+        onClick: this.onDeleteClick
+      })));
+    }
+  }]);
+
+  return UsersShow;
+}(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
+
+var validate = function validate(values) {
+  var errors = {};
+  if (!values.email) errors.email = "Enter a email, please.";
+  if (!values.name) errors.name = "Enter a name, please.";
+  return errors;
+};
+
+var mapStateToProps = function mapStateToProps(state) {
+  if (state.users_show.users) {
+    var user = state.users_show.users;
+    return {
+      initialValues: user,
+      user: user
+    };
+  } else {
+    return {
+      users: state.users_show
+    };
+  }
+};
+
+var mapDispatchToProps = {
+  getUser: _actions__WEBPACK_IMPORTED_MODULE_7__["getUser"],
+  deleteUser: _actions__WEBPACK_IMPORTED_MODULE_7__["deleteUser"],
+  putUser: _actions__WEBPACK_IMPORTED_MODULE_7__["putUser"]
+};
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchToProps)(Object(redux_form__WEBPACK_IMPORTED_MODULE_3__["reduxForm"])({
+  validate: validate,
+  form: 'userShowForm'
+})(UsersShow)));
 
 /***/ }),
 
@@ -113776,8 +115654,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var material_ui_styles_MuiThemeProvider__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! material-ui/styles/MuiThemeProvider */ "./node_modules/material-ui/styles/MuiThemeProvider.js");
 /* harmony import */ var material_ui_styles_MuiThemeProvider__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(material_ui_styles_MuiThemeProvider__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _reducers__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./reducers */ "./resources/js/reducers/index.js");
-/* harmony import */ var _sagas_rootSaga__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./sagas/rootSaga */ "./resources/js/sagas/rootSaga.js");
+/* harmony import */ var _sagas_rootSaga__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./sagas/rootSaga */ "./resources/js/sagas/rootSaga.js");
 /* harmony import */ var _components_boards_index__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/boards_index */ "./resources/js/components/boards_index.js");
+/* harmony import */ var _components_threads_show__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/threads_show */ "./resources/js/components/threads_show.js");
+/* harmony import */ var _components_threads_new__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/threads_new */ "./resources/js/components/threads_new.js");
+/* harmony import */ var _components_users_show__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/users_show */ "./resources/js/components/users_show.js");
+
+
+
 
 
 
@@ -113803,10 +115687,19 @@ if (true) {
 
 middlewares.push(sagaMiddleware);
 var store = Object(redux__WEBPACK_IMPORTED_MODULE_2__["createStore"])(_reducers__WEBPACK_IMPORTED_MODULE_8__["default"], composeEnhancer(redux__WEBPACK_IMPORTED_MODULE_2__["applyMiddleware"].apply(void 0, middlewares)));
-sagaMiddleware.run(_sagas_rootSaga__WEBPACK_IMPORTED_MODULE_11__["default"]);
+sagaMiddleware.run(_sagas_rootSaga__WEBPACK_IMPORTED_MODULE_9__["default"]);
 react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(material_ui_styles_MuiThemeProvider__WEBPACK_IMPORTED_MODULE_7___default.a, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_3__["Provider"], {
   store: store
 }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["BrowserRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["Route"], {
+  path: "/users/show",
+  component: _components_users_show__WEBPACK_IMPORTED_MODULE_13__["default"]
+}), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["Route"], {
+  path: "/threads/new/:id",
+  component: _components_threads_new__WEBPACK_IMPORTED_MODULE_12__["default"]
+}), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["Route"], {
+  path: "/threads/:id",
+  component: _components_threads_show__WEBPACK_IMPORTED_MODULE_11__["default"]
+}), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["Route"], {
   exact: true,
   path: "/",
   component: _components_boards_index__WEBPACK_IMPORTED_MODULE_10__["default"]
@@ -113853,14 +115746,76 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var redux_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-form */ "./node_modules/redux-form/es/index.js");
-/* harmony import */ var _boards_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./boards_index */ "./resources/js/reducers/boards_index.js");
+/* harmony import */ var _boards_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./boards_index */ "./resources/js/reducers/boards_index.js");
+/* harmony import */ var _threads_show__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./threads_show */ "./resources/js/reducers/threads_show.js");
+/* harmony import */ var _users_show__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./users_show */ "./resources/js/reducers/users_show.js");
+
+
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  boards_index: _boards_index__WEBPACK_IMPORTED_MODULE_3__["default"],
+  boards_index: _boards_index__WEBPACK_IMPORTED_MODULE_2__["default"],
+  threads_show: _threads_show__WEBPACK_IMPORTED_MODULE_3__["default"],
+  users_show: _users_show__WEBPACK_IMPORTED_MODULE_4__["default"],
   form: redux_form__WEBPACK_IMPORTED_MODULE_1__["reducer"]
 }));
+
+/***/ }),
+
+/***/ "./resources/js/reducers/threads_show.js":
+/*!***********************************************!*\
+  !*** ./resources/js/reducers/threads_show.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions */ "./resources/js/actions/index.js");
+
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  var threads = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case _actions__WEBPACK_IMPORTED_MODULE_0__["THREAD_FETCH_SUCCEEDED"]:
+      return Object.assign({}, threads, {
+        threads: action.payload
+      });
+
+    default:
+      return threads;
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/reducers/users_show.js":
+/*!*********************************************!*\
+  !*** ./resources/js/reducers/users_show.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions */ "./resources/js/actions/index.js");
+
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  var users = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case _actions__WEBPACK_IMPORTED_MODULE_0__["USER_FETCH_SUCCEEDED"]:
+      return Object.assign({}, users, {
+        users: action.payload
+      });
+
+    default:
+      return users;
+  }
+});
 
 /***/ }),
 
@@ -113949,22 +115904,507 @@ function watchReadBoards() {
 
 /***/ }),
 
+/***/ "./resources/js/sagas/Messages.js":
+/*!****************************************!*\
+  !*** ./resources/js/sagas/Messages.js ***!
+  \****************************************/
+/*! exports provided: watchCreateMessage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "watchCreateMessage", function() { return watchCreateMessage; });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-saga/effects */ "./node_modules/redux-saga/dist/redux-saga-effects-npm-proxy.esm.js");
+/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./api */ "./resources/js/sagas/api.js");
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../actions */ "./resources/js/actions/index.js");
+
+
+var _marked =
+/*#__PURE__*/
+_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(createMessage),
+    _marked2 =
+/*#__PURE__*/
+_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(watchCreateMessage);
+
+
+
+
+
+
+function createMessage(action) {
+  var messageData, response;
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function createMessage$(_context) {
+    while (1) {
+      switch (_context.prev = _context.next) {
+        case 0:
+          messageData = action.values;
+          _context.next = 3;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api__WEBPACK_IMPORTED_MODULE_2__["createMessageApi"], messageData);
+
+        case 3:
+          response = _context.sent;
+
+          if (!response) {
+            _context.next = 9;
+            break;
+          }
+
+          _context.next = 7;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(_actions__WEBPACK_IMPORTED_MODULE_3__["messageCreateSucceeded"])(response.data));
+
+        case 7:
+          _context.next = 11;
+          break;
+
+        case 9:
+          _context.next = 11;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(_actions__WEBPACK_IMPORTED_MODULE_3__["messageCreateFailed"])('エラー'));
+
+        case 11:
+        case "end":
+          return _context.stop();
+      }
+    }
+  }, _marked);
+}
+
+function watchCreateMessage() {
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function watchCreateMessage$(_context2) {
+    while (1) {
+      switch (_context2.prev = _context2.next) {
+        case 0:
+          _context2.next = 2;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions__WEBPACK_IMPORTED_MODULE_3__["CREATE_MESSAGE"], createMessage);
+
+        case 2:
+        case "end":
+          return _context2.stop();
+      }
+    }
+  }, _marked2);
+}
+
+/***/ }),
+
+/***/ "./resources/js/sagas/Threads.js":
+/*!***************************************!*\
+  !*** ./resources/js/sagas/Threads.js ***!
+  \***************************************/
+/*! exports provided: watchReadThread, watchCreateThread */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "watchReadThread", function() { return watchReadThread; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "watchCreateThread", function() { return watchCreateThread; });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-saga/effects */ "./node_modules/redux-saga/dist/redux-saga-effects-npm-proxy.esm.js");
+/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./api */ "./resources/js/sagas/api.js");
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../actions */ "./resources/js/actions/index.js");
+
+
+var _marked =
+/*#__PURE__*/
+_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(fetchThread),
+    _marked2 =
+/*#__PURE__*/
+_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(watchReadThread),
+    _marked3 =
+/*#__PURE__*/
+_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(createThread),
+    _marked4 =
+/*#__PURE__*/
+_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(watchCreateThread);
+
+
+
+
+
+
+function fetchThread(action) {
+  var id, response, payload, meta;
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function fetchThread$(_context) {
+    while (1) {
+      switch (_context.prev = _context.next) {
+        case 0:
+          _context.prev = 0;
+          id = action.id;
+          _context.next = 4;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api__WEBPACK_IMPORTED_MODULE_2__["getThread"], id);
+
+        case 4:
+          response = _context.sent;
+          payload = response.data;
+          meta = {
+            statusCode: response.status,
+            statusText: response.statusText
+          };
+          _context.next = 9;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(_actions__WEBPACK_IMPORTED_MODULE_3__["threadFetchSucceeded"])(payload, meta));
+
+        case 9:
+          _context.next = 15;
+          break;
+
+        case 11:
+          _context.prev = 11;
+          _context.t0 = _context["catch"](0);
+          _context.next = 15;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(_actions__WEBPACK_IMPORTED_MODULE_3__["threadFetchFailed"])(_context.t0));
+
+        case 15:
+        case "end":
+          return _context.stop();
+      }
+    }
+  }, _marked, null, [[0, 11]]);
+}
+
+function watchReadThread() {
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function watchReadThread$(_context2) {
+    while (1) {
+      switch (_context2.prev = _context2.next) {
+        case 0:
+          _context2.next = 2;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeEvery"])(_actions__WEBPACK_IMPORTED_MODULE_3__["READ_THREAD"], fetchThread);
+
+        case 2:
+        case "end":
+          return _context2.stop();
+      }
+    }
+  }, _marked2);
+}
+
+function createThread(action) {
+  var threadData, response;
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function createThread$(_context3) {
+    while (1) {
+      switch (_context3.prev = _context3.next) {
+        case 0:
+          threadData = action.values;
+          _context3.next = 3;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api__WEBPACK_IMPORTED_MODULE_2__["createThreadApi"], threadData);
+
+        case 3:
+          response = _context3.sent;
+
+          if (!response) {
+            _context3.next = 9;
+            break;
+          }
+
+          _context3.next = 7;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(_actions__WEBPACK_IMPORTED_MODULE_3__["threadCreateSucceeded"])(response.data));
+
+        case 7:
+          _context3.next = 11;
+          break;
+
+        case 9:
+          _context3.next = 11;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(_actions__WEBPACK_IMPORTED_MODULE_3__["threadCreateFailed"])('エラー'));
+
+        case 11:
+        case "end":
+          return _context3.stop();
+      }
+    }
+  }, _marked3);
+}
+
+function watchCreateThread() {
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function watchCreateThread$(_context4) {
+    while (1) {
+      switch (_context4.prev = _context4.next) {
+        case 0:
+          _context4.next = 2;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions__WEBPACK_IMPORTED_MODULE_3__["CREATE_THREAD"], createThread);
+
+        case 2:
+        case "end":
+          return _context4.stop();
+      }
+    }
+  }, _marked4);
+}
+
+/***/ }),
+
+/***/ "./resources/js/sagas/Users.js":
+/*!*************************************!*\
+  !*** ./resources/js/sagas/Users.js ***!
+  \*************************************/
+/*! exports provided: watchReadUser, watchDeleteUser, watchUpdateUser */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "watchReadUser", function() { return watchReadUser; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "watchDeleteUser", function() { return watchDeleteUser; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "watchUpdateUser", function() { return watchUpdateUser; });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-saga/effects */ "./node_modules/redux-saga/dist/redux-saga-effects-npm-proxy.esm.js");
+/* harmony import */ var _sagas_api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../sagas/api */ "./resources/js/sagas/api.js");
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../actions */ "./resources/js/actions/index.js");
+
+
+var _marked =
+/*#__PURE__*/
+_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(fetchUser),
+    _marked2 =
+/*#__PURE__*/
+_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(watchReadUser),
+    _marked3 =
+/*#__PURE__*/
+_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(deleteUser),
+    _marked4 =
+/*#__PURE__*/
+_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(watchDeleteUser),
+    _marked5 =
+/*#__PURE__*/
+_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(updateUser),
+    _marked6 =
+/*#__PURE__*/
+_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(watchUpdateUser);
+
+
+
+
+
+
+function fetchUser() {
+  var response, payload, meta;
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function fetchUser$(_context) {
+    while (1) {
+      switch (_context.prev = _context.next) {
+        case 0:
+          _context.prev = 0;
+          _context.next = 3;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_sagas_api__WEBPACK_IMPORTED_MODULE_2__["getUser"]);
+
+        case 3:
+          response = _context.sent;
+          payload = response.data;
+          meta = {
+            statusCode: response.status,
+            statusText: response.statusText
+          };
+          _context.next = 8;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(_actions__WEBPACK_IMPORTED_MODULE_3__["userFetchSucceeded"])(payload, meta));
+
+        case 8:
+          _context.next = 14;
+          break;
+
+        case 10:
+          _context.prev = 10;
+          _context.t0 = _context["catch"](0);
+          _context.next = 14;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(_actions__WEBPACK_IMPORTED_MODULE_3__["userFetchFailed"])(_context.t0));
+
+        case 14:
+        case "end":
+          return _context.stop();
+      }
+    }
+  }, _marked, null, [[0, 10]]);
+}
+
+function watchReadUser() {
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function watchReadUser$(_context2) {
+    while (1) {
+      switch (_context2.prev = _context2.next) {
+        case 0:
+          _context2.next = 2;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeEvery"])(_actions__WEBPACK_IMPORTED_MODULE_3__["READ_USER"], fetchUser);
+
+        case 2:
+        case "end":
+          return _context2.stop();
+      }
+    }
+  }, _marked2);
+}
+
+function deleteUser() {
+  var response, payload, meta;
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function deleteUser$(_context3) {
+    while (1) {
+      switch (_context3.prev = _context3.next) {
+        case 0:
+          _context3.prev = 0;
+          _context3.next = 3;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_sagas_api__WEBPACK_IMPORTED_MODULE_2__["deleteUserApi"]);
+
+        case 3:
+          response = _context3.sent;
+          payload = response.data;
+          meta = {
+            statusCode: response.status,
+            statusText: response.statusText
+          };
+          _context3.next = 8;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(_actions__WEBPACK_IMPORTED_MODULE_3__["userDeleteSucceeded"])(payload, meta));
+
+        case 8:
+          _context3.next = 14;
+          break;
+
+        case 10:
+          _context3.prev = 10;
+          _context3.t0 = _context3["catch"](0);
+          _context3.next = 14;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(_actions__WEBPACK_IMPORTED_MODULE_3__["userDeleteFailed"])(_context3.t0));
+
+        case 14:
+        case "end":
+          return _context3.stop();
+      }
+    }
+  }, _marked3, null, [[0, 10]]);
+}
+
+function watchDeleteUser() {
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function watchDeleteUser$(_context4) {
+    while (1) {
+      switch (_context4.prev = _context4.next) {
+        case 0:
+          _context4.next = 2;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeEvery"])(_actions__WEBPACK_IMPORTED_MODULE_3__["DELETE_USER"], deleteUser);
+
+        case 2:
+        case "end":
+          return _context4.stop();
+      }
+    }
+  }, _marked4);
+}
+
+function updateUser(action) {
+  var userData, response;
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function updateUser$(_context5) {
+    while (1) {
+      switch (_context5.prev = _context5.next) {
+        case 0:
+          userData = action.values;
+          _context5.next = 3;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_sagas_api__WEBPACK_IMPORTED_MODULE_2__["updateUserApi"], userData);
+
+        case 3:
+          response = _context5.sent;
+
+          if (!response) {
+            _context5.next = 9;
+            break;
+          }
+
+          _context5.next = 7;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(_actions__WEBPACK_IMPORTED_MODULE_3__["userUpdateSucceeded"])(response.data));
+
+        case 7:
+          _context5.next = 11;
+          break;
+
+        case 9:
+          _context5.next = 11;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(_actions__WEBPACK_IMPORTED_MODULE_3__["userUpdateFailed"])('エラー'));
+
+        case 11:
+        case "end":
+          return _context5.stop();
+      }
+    }
+  }, _marked5);
+}
+
+function watchUpdateUser() {
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function watchUpdateUser$(_context6) {
+    while (1) {
+      switch (_context6.prev = _context6.next) {
+        case 0:
+          _context6.next = 2;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeEvery"])(_actions__WEBPACK_IMPORTED_MODULE_3__["UPDATE_USER"], updateUser);
+
+        case 2:
+        case "end":
+          return _context6.stop();
+      }
+    }
+  }, _marked6);
+}
+
+/***/ }),
+
 /***/ "./resources/js/sagas/api.js":
 /*!***********************************!*\
   !*** ./resources/js/sagas/api.js ***!
   \***********************************/
-/*! exports provided: getBoards */
+/*! exports provided: getBoards, getThread, createThreadApi, createMessageApi, getUser, deleteUserApi, updateUserApi */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getBoards", function() { return getBoards; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getThread", function() { return getThread; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createThreadApi", function() { return createThreadApi; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createMessageApi", function() { return createMessageApi; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getUser", function() { return getUser; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteUserApi", function() { return deleteUserApi; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateUserApi", function() { return updateUserApi; });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
-var ROOT_URL = 'http://reactbbs.test/api/';
+var ROOT_URL = 'http://reactbbs.test/api';
 function getBoards() {
-  return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(ROOT_URL + 'boards');
+  return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(ROOT_URL + '/boards');
+}
+function getThread(id) {
+  return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(ROOT_URL + "/threads/".concat(id));
+}
+function createThreadApi(values) {
+  return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(ROOT_URL + '/threads', {
+    board_id: values.board_id,
+    name: values.name
+  });
+}
+function createMessageApi(values) {
+  return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(ROOT_URL + '/message', {
+    thread_id: values.thread_id,
+    content: values.content
+  });
+}
+function getUser() {
+  return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(ROOT_URL + '/user');
+}
+function deleteUserApi() {
+  var id = '';
+  var response = '';
+  axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(ROOT_URL + '/user').then(function (value) {
+    id = value.data.id;
+    response = axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"](ROOT_URL + "/user/".concat(id));
+    localStorage.clear();
+    location.href = 'http://reactbbs.test/';
+  });
+  return response;
+}
+function updateUserApi(values) {
+  var id = '';
+  var response = '';
+  axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(ROOT_URL + '/user').then(function (value) {
+    id = value.data.id;
+    response = axios__WEBPACK_IMPORTED_MODULE_0___default.a.put(ROOT_URL + "/user/".concat(id), {
+      email: values.email,
+      name: values.name
+    });
+    ;
+    location.href = 'http://reactbbs.test/users/show';
+  });
+  return response;
 }
 
 /***/ }),
@@ -113982,12 +116422,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-saga/effects */ "./node_modules/redux-saga/dist/redux-saga-effects-npm-proxy.esm.js");
-/* harmony import */ var _Boards__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Boards */ "./resources/js/sagas/Boards.js");
+/* harmony import */ var _Boards__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Boards */ "./resources/js/sagas/Boards.js");
+/* harmony import */ var _Threads__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Threads */ "./resources/js/sagas/Threads.js");
+/* harmony import */ var _Messages__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Messages */ "./resources/js/sagas/Messages.js");
+/* harmony import */ var _Users__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Users */ "./resources/js/sagas/Users.js");
 
 
 var _marked =
 /*#__PURE__*/
 _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(rootSaga);
+
+
+
 
 
 
@@ -113997,9 +116443,33 @@ function rootSaga() {
       switch (_context.prev = _context.next) {
         case 0:
           _context.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["fork"])(_Boards__WEBPACK_IMPORTED_MODULE_3__["watchReadBoards"]);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["fork"])(_Boards__WEBPACK_IMPORTED_MODULE_2__["watchReadBoards"]);
 
         case 2:
+          _context.next = 4;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["fork"])(_Threads__WEBPACK_IMPORTED_MODULE_3__["watchReadThread"]);
+
+        case 4:
+          _context.next = 6;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["fork"])(_Threads__WEBPACK_IMPORTED_MODULE_3__["watchCreateThread"]);
+
+        case 6:
+          _context.next = 8;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["fork"])(_Messages__WEBPACK_IMPORTED_MODULE_4__["watchCreateMessage"]);
+
+        case 8:
+          _context.next = 10;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["fork"])(_Users__WEBPACK_IMPORTED_MODULE_5__["watchReadUser"]);
+
+        case 10:
+          _context.next = 12;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["fork"])(_Users__WEBPACK_IMPORTED_MODULE_5__["watchDeleteUser"]);
+
+        case 12:
+          _context.next = 14;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["fork"])(_Users__WEBPACK_IMPORTED_MODULE_5__["watchUpdateUser"]);
+
+        case 14:
         case "end":
           return _context.stop();
       }

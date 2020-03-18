@@ -53,9 +53,9 @@
                         </li>
                         @endif
                         @else
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <span class="nav-link">ようこそ、{{ Auth::user()->name }}さん</span>
-                        </li>
+                        </li> --}}
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();

@@ -16,4 +16,4 @@ use Illuminate\Http\Request;
 Route::resource('boards', 'BoardsController', ['except' => ['create', 'show', 'edit']]);
 Route::resource('threads', 'ThreadsController', ['except' => ['index', 'create', 'edit']]);
 Route::resource('message', 'MessagesController', ['only' => ['store', 'update', 'destroy']]);
-Route::resource('user', 'UsersController', ['only' => ['show', 'update', 'destroy']]);
+Route::resource('user', 'UsersController', ['only' => ['index', 'update', 'destroy']]);

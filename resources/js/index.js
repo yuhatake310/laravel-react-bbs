@@ -10,6 +10,9 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import reducer from './reducers';
 import rootSaga from './sagas/rootSaga';
 import BoardsIndex from './components/boards_index';
+import ThreadsShow from './components/threads_show';
+import ThreadsNew from './components/threads_new';
+import UsersShow from './components/users_show';
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const sagaMiddleware = createSagaMiddleware();
@@ -35,6 +38,9 @@ ReactDOM.render(
         <Provider store={store}>
             <BrowserRouter>
                 <Switch>
+                    <Route path="/users/show" component={UsersShow} />
+                    <Route path="/threads/new/:id" component={ThreadsNew} />
+                    <Route path="/threads/:id" component={ThreadsShow} />
                     <Route exact path="/" component={BoardsIndex} />
                 </Switch>
             </BrowserRouter>

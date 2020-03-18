@@ -10,8 +10,7 @@ import {
     TableRow,
     TableRowColumn,
 } from 'material-ui/Table';
-import FloatingActionButton from 'material-ui/FloatingActionButton';
-import ContentAdd from 'material-ui/svg-icons/content/add';
+import RaisedButton from 'material-ui/RaisedButton';
 
 import { readBoards } from '../actions';
 
@@ -21,27 +20,46 @@ class BoardsIndex extends Component {
     }
 
     render() {
-        return _.map(this.props.boards, board => (
-            <Table key={board.id}>
-                <TableHeader
-                    displaySelectAll={false}
-                    adjustForCheckbox={false}
-                    colSpan={2}
-                >
-                    <TableRow>
-                        <TableHeaderColumn>{board.name}</TableHeaderColumn>
-                    </TableRow>
-                </TableHeader>
+        const style = {
+            position: "fixed",
+            right: 12,
+            top: 60
+        }
 
-                <TableBody displayRowCheckbox={false}>
-                    {_.map(board.threads, thread => (
-                        <TableRow key={thread.id}>
-                            <TableRowColumn> {thread.name} </TableRowColumn>
-                            <TableRowColumn> {thread.updated_at} </TableRowColumn>
+        return _.map(this.props.boards, board => (
+            <React.Fragment key={board.id}>
+                <RaisedButton label="ユーザー情報" style={style} containerElement={<Link to="/users/show" />} />
+                <Table style={{ maxWidth: '900px', margin: 'auto' }}>
+                    <TableHeader
+                        displaySelectAll={false}
+                        adjustForCheckbox={false}
+                        colSpan={2}
+                    >
+                        <TableRow>
+                            <TableHeaderColumn>{board.name}</TableHeaderColumn>
                         </TableRow>
-                    ))};
-                </TableBody>
-            </Table >
+                    </TableHeader>
+
+                    <TableBody displayRowCheckbox={false}>
+                        {_.map(board.threads, thread => (
+                            <TableRow key={thread.id}>
+                                <TableRowColumn>
+                                    <Link to={`/threads/${thread.id}`}>
+                                        {thread.name}
+                                    </Link>
+                                </TableRowColumn>
+                                <TableRowColumn> {thread.updated_at} </TableRowColumn>
+                            </TableRow>
+                        ))};
+                        <TableRow>
+                            <TableRowColumn colSpan={2}>
+                                <RaisedButton label="スレッド新規作成" containerElement={<Link to={`/threads/new/${board.id}`} />} />
+                            </TableRowColumn>
+                        </TableRow>
+                    </TableBody>
+                </Table >
+                <br />
+            </React.Fragment >
         ));
     }
 }

@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Auth;
 
 class MessagesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Store a newly created resource in storage.
      *
