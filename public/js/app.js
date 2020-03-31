@@ -116359,7 +116359,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
-var ROOT_URL = 'http://reactbbs.test/api';
+var ROOT_URL = 'http://hatakeapp.work/api';
 function getBoards() {
   return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(ROOT_URL + '/boards');
 }
@@ -116388,7 +116388,7 @@ function deleteUserApi() {
     id = value.data.id;
     response = axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"](ROOT_URL + "/user/".concat(id));
     localStorage.clear();
-    location.href = 'http://reactbbs.test/';
+    location.href = 'http://hatakeapp.work/';
   });
   return response;
 }
@@ -116402,7 +116402,7 @@ function updateUserApi(values) {
       name: values.name
     });
     ;
-    location.href = 'http://reactbbs.test/users/show';
+    location.href = 'http://hatakeapp.work/users/show';
   });
   return response;
 }
