@@ -1,24 +1,27 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { createStore, compose, applyMiddleware } from 'redux';
-import { Provider } from 'react-redux';
-import createSagaMiddleware from 'redux-saga';
-import { createLogger } from 'redux-logger';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import React from "react";
+import ReactDOM from "react-dom";
+import { createStore, compose, applyMiddleware } from "redux";
+import { Provider } from "react-redux";
+import createSagaMiddleware from "redux-saga";
+import { createLogger } from "redux-logger";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 
-import reducer from './reducers';
-import rootSaga from './sagas/rootSaga';
-import BoardsIndex from './components/boards_index';
-import ThreadsShow from './components/threads_show';
-import ThreadsNew from './components/threads_new';
-import UsersShow from './components/users_show';
+import reducer from "./reducers";
+import rootSaga from "./sagas/rootSaga";
+import BoardsIndex from "./components/boards_index";
+import ThreadsShow from "./components/threads_show";
+import ThreadsNew from "./components/threads_new";
+import UsersShow from "./components/users_show";
 
-const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancer =
+    process.env.NODE_ENV === "production"
+        ? compose
+        : window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const sagaMiddleware = createSagaMiddleware();
 const logger = createLogger({
     diff: true,
-    collapsed: true,
+    collapsed: true
 });
 
 const middlewares = [];
@@ -29,7 +32,7 @@ middlewares.push(sagaMiddleware);
 
 const store = createStore(
     reducer,
-    composeEnhancer(applyMiddleware(...middlewares)),
+    composeEnhancer(applyMiddleware(...middlewares))
 );
 sagaMiddleware.run(rootSaga);
 
@@ -46,5 +49,5 @@ ReactDOM.render(
             </BrowserRouter>
         </Provider>
     </MuiThemeProvider>,
-    document.getElementById('boardsindex')
+    document.getElementById("boardsindex")
 );

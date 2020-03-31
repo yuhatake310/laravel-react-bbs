@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const ROOT_URL = "http://hatakeapp.work/api";
+const ROOT_URL = "https://hatakeapp.work/api";
 
 export function getBoards() {
     return axios.get(ROOT_URL + "/boards");
