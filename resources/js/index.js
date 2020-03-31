@@ -15,7 +15,7 @@ import ThreadsNew from "./components/threads_new";
 import UsersShow from "./components/users_show";
 
 const composeEnhancer =
-    process.env.NODE_ENV === "production"
+    process.env.NODE_ENV === `production`
         ? compose
         : window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const sagaMiddleware = createSagaMiddleware();
